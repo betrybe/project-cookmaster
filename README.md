@@ -47,7 +47,11 @@ O código para cadastro de usuários deve ser criado por você utilizando os con
 
 - O middleware `authMiddleware` recebe um parâmetro chamado `required`. Quando verdadeiro, esse parâmetro faz com que uma rota só possa ser acessada por pessoas logadas. Em alguns casos, uma página precisa ter acesso aos dados do usuário, caso essa pessoa esteja logada, mas deve continuar podendo ser acessada por pessoas que não estejam autenticadas. Para esse caso, passe `false` como o único parâmetro para a função `authMiddleware`. Ex.: `middlewares.auth(false)`.
 
-Você pode acessar um protótipo das telas [neste link]().
+### Protótipo e telas
+
+Você pode acessar um protótipo da aplicação com todas as telas (tanto obrigatórias quanto bônus) [neste link](https://www.figma.com/file/CAEkOBX1n3mpVXr4kjgvY8/Project-Cookmaster?node-id=0%3A1).
+
+Não estamos avaliando o **estilo** da página. Cores, tamanhos de texto e afins não serão avaliados.
 
 ---
 
@@ -65,19 +69,21 @@ A página deve ser acessível através da rota principal (`/`).
 
 Para cada receita, deve ser mostrado apenas o nome da receita e o nome da pessoa que cadastrou aquela receita, bem como um link para ver seus detalhes.
 
-No canto superior direito, um botão "Nova receita" deve ser exibido **apenas quando houver um usuário logado**.
+Um botão "Nova receita" deve ser exibido **apenas quando houver um usuário logado**.
 
 ### 2 - Crie uma tela para visualizar uma receita específica
 
 A tela deve estar diponível no endpoint `/recipes/:id`
 
-Caso o ID da pessoa logada na aplicação seja o mesmo ID da pessoa que criou a receita, um botão "Editar receita" e um outro "Excluir receita" devem ser exibidos na página. Esses botões devem levar a pessoa para as páginas e editar e de excluir receita, respectivamente.
+Caso o ID da pessoa logada na aplicação seja o mesmo ID da pessoa que criou a receita, um botão "Editar receita" e um outro "Excluir receita" devem ser exibidos na página. Esses botões devem levar a pessoa para as páginas e editar e de excluir receita, respectivamente. Caso não haja nenhuma pessoa logada, nenhum desses botões deve ser exibido.
 
 Esta página deve exibir o título, os ingredientes, e a forma de preparo da receita.
 
+> Dica: esse é um dos casos no qual você pode utilizar o `authMiddleware` passando `false` para o parâmetro `required`, e passar o conteúdo de `req.user` para a view, o que o permitirá determinar se existe um usuário logado e, portanto, se os botões devem ser exibidos.
+
 ### 3 - Crie uma página de cadastro de usuários
 
-Um usuário precisa ter os campos ID, E-mail, Senha, Nome e Sobrenome. Todos os campos são obrigatórios.
+Um usuário precisa ter os campos ID, E-mail, Senha, Nome e Sobrenome. Todos os campos são obrigatórios. O ID deve ser gerado automaticamente, não devendo ser preenchido pelo usuário no momento do cadastro.
 
 A validação dos campos deve acontecer no backend, e uma mensagem deve ser enviada ao frontend através de uma propriedade passada para o EJS, da mesma forma que acontece com a view `users/login`.
 
@@ -85,15 +91,15 @@ A validação dos campos deve acontecer no backend, e uma mensagem deve ser envi
 
 #### Funções administrativas
 
-> Páginas que **não** podem ser acessadas sem login
+> Páginas que **não** podem ser acessadas sem login. Para essas páginas, utilize o `authMiddleware` sem passar parâmetro algum.
 
 ### 4 - Crie uma página de cadastro de receitas
 
 A página deve ser acessível através do endpoint `/recipes/new`, e o formulário deve ser enviado para o endpoint `POST /recipes`
 
-A receita deve ter os campos ID, Nome, Ingredientes, Modo de preparo e Autor. Sinta-se à vontade para modelar o banco da forma que achar melhor.
+A receita deve ter os campos ID, Nome, Ingredientes, Modo de preparo e Autor. Sinta-se à vontade para modelar o banco da forma que achar melhor. O ID deve ser gerado automaticamente, não devendo ser preenchido no formulário de cadastro de receita.
 
-Cada receita pode ter mais de um ingrediente. Realize a modelagem do seu banco e a construção da view e do model pensando nisso.
+O campo dos ingredientes pode ser um campo de texto aberto.
 
 ### 5 - Crie uma página de edição de receitas
 
@@ -101,9 +107,7 @@ A página deve ser acessível através do endpoint `/recipes/:id/edit`, e o form
 
 Ao carregar, a página já deve conter as informações atuais daquela receita. Você pode utilizar o atributo `value` dos inputs no HTML para preencher esses campos.
 
-O ID e o nome da pessoa que a cadastrou devem ser exibidos na tela, mas não podem ser alterados.
-
-Apenas a pessoa que criou a receita deve ter permissão para edita-la. Para verificar isso, você pode utilizar a propriedade `id` localizada em `req.user` (que é criada pelo `authMiddleware`) e compará-la ao ID de quem criou a receita. Caso os IDs não sejam idênticos, a pessoa deve ser redirecionada à página de visualizar receita.
+Apenas a pessoa que criou a receita deve ter permissão para edita-la. Para verificar isso, você pode utilizar a propriedade `id` localizada em `req.user` (que é criada pelo `authMiddleware`) e compará-la ao ID de quem criou a receita. Caso os IDs não sejam idênticos, a pessoa deve ser redirecionada à página de visualizar receita utilizando o método `res.redirect` no controller.
 
 Caso a edição aconteça com sucesso, a pessoa deve ser redirecionada para a página de visualização daquela receita, já com os dados atualizados.
 
@@ -115,7 +119,7 @@ A validação dos campos deve ser realizada no backend.
 
 A página deve ser acessível através do endpoint `/recipes/:id/delete`, e só pode ser acessada pela pessoa que cadastrou a receita.
 
-Ao acessar a página, um formulário deve ser exibido, solicitando a senha da pessoa para confirmar a operaçnao. Esse formulário deve ser enviado para o endpoint `POST /recipes/:id/delete`.
+Ao acessar a página, um formulário deve ser exibido, solicitando a senha da pessoa para confirmar a operação. Esse formulário deve ser enviado para o endpoint `POST /recipes/:id/delete`.
 
 A receita só deve ser excluída caso a senha esteja correta. Caso ela esteja incorreta, a pessoa deve ser redirecionada à página de exclusão da receita com a mensagem "Senha incorreta. Por favor, tente novamente".
 
@@ -147,7 +151,7 @@ Caso uma pessoa que não está logada acesse essa página, ela deve ser redireci
 
 O link para acessar essa página só deve estar visível para pessoas logadas.
 
-Cada pessoa só deve poder editar o próprio perfil. Para isso, o backend deve extrair o ID do usuário a ser atualizado da propriedade `req.user`, e não do corpo da request.
+Cada pessoa só deve poder editar o próprio perfil. Para isso, o backend deve extrair o ID do usuário a ser atualizado da propriedade `req.user`, e não do corpo da request. Esse deve ser o ID enviado ao model para realizar a atualização do usuário.
 
 Esta página deve estar acessível através do endpoint `/me/edit`, e o formulário deve ser enviado para o endpoint `POST /me`.
 
@@ -157,7 +161,7 @@ O ID da pessoa não deve poder ser editado. Nem através da tela, nem através d
 
 ### 10 - Utilize `includes` do EJS para renderizar a navbar das páginas
 
-Parte do HTML ficará repetido em todas as páginas como, por exemplo, a barra de navegação com os links de pesquisar receitas, minhas receitas e afins.
+Parte do HTML ficará repetido em todas as páginas como, por exemplo, a barra de navegação.
 
 Para esses conteúdos repetitivos, você pode utilizar `includes` do EJS.
 
