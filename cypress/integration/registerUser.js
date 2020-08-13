@@ -12,7 +12,6 @@ describe("Crie uma página de cadastro de usuários", () => {
   let randomLast = name.lastName();
 
   beforeEach(() => {
-    cy.viewport(1366, 768);
     cy.visit('http://localhost:3000/');
   })
     

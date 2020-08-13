@@ -10,7 +10,6 @@ import {
 
 describe("Crie uma tela para visualizar uma receita específica.", () => {
   beforeEach(() => {
-    cy.viewport(1366, 768);
     cy.visit('http://localhost:3000/');
   })
     

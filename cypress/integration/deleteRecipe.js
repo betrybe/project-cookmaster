@@ -10,7 +10,6 @@ import {
  
 describe("Crie uma página de exclusão de uma receita.", () => {
   beforeEach(() => {
-    cy.viewport(1366, 768);
     cy.visit('http://localhost:3000/');
     login('bruno.batista@gmail.com', '12345678');
     createRecipe();

@@ -458,7 +458,7 @@ Tela de Minhas Receitas:
 
 ## Bônus
 
-### 9 - Crie uma página de editar usuário
+### 9 - Crie uma página de editar usuário.
 
 O link para acessar essa página só deve estar visível para pessoas logadas.
 
