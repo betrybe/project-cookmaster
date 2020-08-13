@@ -16,7 +16,7 @@ describe("Crie uma página de cadastro de usuários", () => {
     cy.visit('http://localhost:3000/');
   })
     
-  it("Criar um usário com sucesso.", () => {
+  it("Criar um usuário com sucesso.", () => {
     clickButton('[data-testid="login"]');
     clickButton('[data-testid="cadastrar"]');
     registerUser(randomEmail, '12345678', '12345678', randomName, randomLast);

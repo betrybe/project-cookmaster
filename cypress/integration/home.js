@@ -16,9 +16,8 @@ describe("Crie uma tela de listagem de receitas.", () => {
     verifyContainsText('Receitas');
   })
 
-  it("Verificar se não existe o botão 'Nova Receita' entro na home sem estar logado.", () => {
+  it("Verificar se não existe o botão 'Nova Receita' quando acesso home sem estar logado.", () => {
     verifyContainsText('Cookmaster');
-    verifyContainsText('Receita de Bolo');
     verifyContainsText('Receita de Bolo');
     verifyContainsText('bruno batista');
     verifyElementNotVisible('[data-testid="nova-receita"]');
@@ -32,9 +31,9 @@ describe("Crie uma tela de listagem de receitas.", () => {
     verifyElementVisible('[data-testid="nova-receita"]');
   })
 
-  it("Verificar se existe receita na tela com 'nome da receita', 'nome do usuário' e o link da receita 'Ver Mais'.", () => {
+  it("Verificar se existe receita na tela com 'nome da receita', 'nome do usuário' e o link da receita 'Ver mais'.", () => {
     verifyContainsText('Receita de Bolo');
     verifyContainsText('bruno batista');
-    verifyContainsText('Ver Mais');
+    verifyContainsText('Ver mais');
   })
 });

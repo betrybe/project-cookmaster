@@ -1,15 +1,15 @@
 import { 
-    verifyContainsText, 
-    login,
-    clickButton,
-    insertText,
-    clickLinkOrText,
-    createRecipe,
-    clickLastElement
-  } from '../actions/actionBase';
+  verifyContainsText, 
+  login,
+  clickButton,
+  insertText,
+  clickLinkOrText,
+  createRecipe,
+  clickLastElement
+} from '../actions/actionBase';
 
 import { name } from 'faker';
-    
+  
 describe("Crie uma página de edição de receitas.", () => {
   let randomName = name.title();
   let randonIngredient = name.firstName();
@@ -21,7 +21,7 @@ describe("Crie uma página de edição de receitas.", () => {
     login('bruno.batista@gmail.com', '12345678');
     createRecipe();
   })
-  
+
   it("Editar o nome da receita.", () => {
     clickButton('[data-testid="minhas-receitas"]');
     clickLastElement('a');
@@ -31,7 +31,7 @@ describe("Crie uma página de edição de receitas.", () => {
     clickButton('[data-testid="postar-receita"]');
     verifyContainsText(randomName);
   })
-  
+
   it("Editar os ingredientes da receita.", () => {
     clickButton('[data-testid="minhas-receitas"]');
     clickLastElement('a');
@@ -43,7 +43,7 @@ describe("Crie uma página de edição de receitas.", () => {
     clickLastElement('a');
     verifyContainsText(randonIngredient);
   })
-   
+ 
   it("Editar o modo de preparo da receita.", () => {
     clickButton('[data-testid="minhas-receitas"]');
     clickLastElement('a');
@@ -55,4 +55,4 @@ describe("Crie uma página de edição de receitas.", () => {
     verifyContainsText(randonPrepare);
   })
 });
-    
+  

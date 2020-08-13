@@ -15,7 +15,7 @@ describe("Crie uma página de cadastro de receitas.", () => {
     login('bruno.batista@gmail.com', '12345678');
   })
 
-  it("Verificar se o botão 'Nova Receita' direciona para página de novas receitas.", () => {
+  it("Verificar se o botão 'Nova Receita' direciona para página de cadastrar receitas.", () => {
     clickButton('[data-testid="nova-receita"]');
     verifyContainsUrl('/recipes/new');
     verifyContainsText('Nova Receita');
