@@ -25,43 +25,43 @@ describe("Crie uma página de editar usuário.", () => {
  
   it("Verificar se o botão editar usuário redireciona para tela de editar usuário.", () => {
     login(randomEmail, '12345678');
-    clickButton('[data-testid="editar-usuario"]');
+    clickButton('[data-testid="minha-conta"]');
     verifyContainsUrl('/me/edit');
   })
 
   it("Validar alterar email.", () => {
     login(randomEmail, '12345678');
-    clickButton('[data-testid="editar-usuario"]');
+    clickButton('[data-testid="minha-conta"]');
     clearFieldsUser()
     registerUser('emailalterado@gmail.com', '12345678', '12345678', randomName, randomLast);
-    clickButton('[data-testid="editar-usuario"]');
+    clickButton('[data-testid="minha-conta"]');
     getValueInput('[data-testid="email"]','emailalterado@gmail.com');
   })
 
   it("Validar alterar nome.", () => {
     login(randomEmail, '12345678');
-    clickButton('[data-testid="editar-usuario"]');
+    clickButton('[data-testid="minha-conta"]');
     clearFieldsUser();
     registerUser(randomEmail, '12345678', '12345678', 'ALTERADO', randomLast);
-    clickButton('[data-testid="editar-usuario"]');
+    clickButton('[data-testid="minha-conta"]');
     getValueInput('[data-testid="nome"]','ALTERADO');
   })
 
   it("Validar alterar sobrenome.", () => {
     login(randomEmail, '12345678');
-    clickButton('[data-testid="editar-usuario"]');
+    clickButton('[data-testid="minha-conta"]');
     clearFieldsUser();
     registerUser(randomEmail, '12345678', '12345678', randomName, 'ALTERADO');
-    clickButton('[data-testid="editar-usuario"]');
+    clickButton('[data-testid="minha-conta"]');
     getValueInput('[data-testid="sobrenome"]','ALTERADO');
   }) 
 
   it("Validar alterar senha.", () => {
     login(randomEmail, '12345678');
-    clickButton('[data-testid="editar-usuario"]');
+    clickButton('[data-testid="minha-conta"]');
     clearFieldsUser();
     registerUser(randomEmail, '123456789', '123456789', randomName, randomLast);
-    clickButton('[data-testid="editar-usuario"]');
+    clickButton('[data-testid="minha-conta"]');
     clearFieldsUser();
     registerUser(randomEmail, '12345678', '12345678', randomName, randomLast);
   }) 
