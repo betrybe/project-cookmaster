@@ -1,4 +1,4 @@
-/// <reference types="Cypress" />
+// <reference types="Cypress" />
 
 import {
   verifyContainsText,
@@ -12,11 +12,10 @@ import {
   createTableUsers,
   createTableRecipes,
   insertUsers,
-  insertRecipes
+  insertRecipes,
 } from '../actions/actionBase';
 
 describe("Crie uma página de exclusão de uma receita.", () => {
-
   before(() => {
     cy.task('queryDb', createDataBase());
     cy.task('queryDb', "USE cookmaster;");
@@ -26,7 +25,7 @@ describe("Crie uma página de exclusão de uma receita.", () => {
     cy.task('queryDb', insertRecipes());
   })
 
-  after(() =>{
+  after(() => {
     cy.task('queryDb', 'DELETE FROM cookmaster.recipes;');
     cy.task('queryDb', "SET FOREIGN_KEY_CHECKS = 0; ");
     cy.task('queryDb', "DELETE FROM cookmaster.users;");

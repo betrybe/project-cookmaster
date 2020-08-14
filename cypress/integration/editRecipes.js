@@ -10,30 +10,30 @@ import {
   createTableUsers,
   createTableRecipes,
   insertUsers,
-  insertRecipes
+  insertRecipes,
 } from '../actions/actionBase';
 
 import { name } from 'faker';
 
-describe("Crie uma página de edição de receitas.", () => {
-  let randomName = name.title();
-  let randomIngredient = name.firstName();
-  let randomPrepare = name.firstName();
+describe('Crie uma página de edição de receitas.', () => {
+  const randomName = name.title();
+  const randomIngredient = name.firstName();
+  const randomPrepare = name.firstName();
 
   before(() => {
     cy.task('queryDb', createDataBase());
-    cy.task('queryDb', "USE cookmaster;")
+    cy.task('queryDb', 'USE cookmaster;');
     cy.task('queryDb', createTableUsers());
     cy.task('queryDb', createTableRecipes());
     cy.task('queryDb', insertUsers());
     cy.task('queryDb', insertRecipes());
   })
 
-  after(() =>{
+  after(() => {
     cy.task('queryDb', 'DELETE FROM cookmaster.recipes;');
-    cy.task('queryDb', "SET FOREIGN_KEY_CHECKS = 0; ");
-    cy.task('queryDb', "DELETE FROM cookmaster.users;");
-    cy.task('queryDb', "ALTER TABLE cookmaster.users AUTO_INCREMENT = 1;");
+    cy.task('queryDb', 'SET FOREIGN_KEY_CHECKS = 0; ');
+    cy.task('queryDb', 'DELETE FROM cookmaster.users;');
+    cy.task('queryDb', 'ALTER TABLE cookmaster.users AUTO_INCREMENT = 1;');
   })
 
   beforeEach(() => {
@@ -42,7 +42,7 @@ describe("Crie uma página de edição de receitas.", () => {
     createRecipe();
   })
 
-  it("Editar o nome da receita", () => {
+  it('Editar o nome da receita', () => {
     clickButton('[data-testid="minhas-receitas"]');
     clickLastElement('a');
     clickButton('[data-testid="editar-receita"]');
@@ -52,7 +52,7 @@ describe("Crie uma página de edição de receitas.", () => {
     verifyContainsText(randomName);
   })
 
-  it("Editar os ingredientes da receita", () => {
+  it('Editar os ingredientes da receita', () => {
     clickButton('[data-testid="minhas-receitas"]');
     clickLastElement('a');
     clickButton('[data-testid="editar-receita"]');
@@ -64,7 +64,7 @@ describe("Crie uma página de edição de receitas.", () => {
     verifyContainsText(randomIngredient);
   })
 
-  it("Editar o modo de preparo da receita", () => {
+  it('Editar o modo de preparo da receita', () => {
     clickButton('[data-testid="minhas-receitas"]');
     clickLastElement('a');
     clickButton('[data-testid="editar-receita"]');

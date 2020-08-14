@@ -7,44 +7,43 @@ import {
   createTableUsers,
   createTableRecipes,
   insertUsers,
-  insertRecipes
+  insertRecipes,
 } from '../actions/actionBase';
 
-describe("Crie uma página de 'Minhas receitas'.", () => {
-
+describe('Crie uma página de "Minhas receitas".', () => {
   before(() => {
     cy.task('queryDb', createDataBase());
-    cy.task('queryDb', "USE cookmaster;")
+    cy.task('queryDb', 'USE cookmaster;');
     cy.task('queryDb', createTableUsers());
     cy.task('queryDb', createTableRecipes());
     cy.task('queryDb', insertUsers());
     cy.task('queryDb', insertRecipes());
   })
 
-  after(() =>{
+  after(() => {
     cy.task('queryDb', 'DELETE FROM cookmaster.recipes;');
-    cy.task('queryDb', "SET FOREIGN_KEY_CHECKS = 0; ");
-    cy.task('queryDb', "DELETE FROM cookmaster.users;");
-    cy.task('queryDb', "ALTER TABLE cookmaster.users AUTO_INCREMENT = 1;");
+    cy.task('queryDb', 'SET FOREIGN_KEY_CHECKS = 0;');
+    cy.task('queryDb', 'DELETE FROM cookmaster.users;');
+    cy.task('queryDb', 'ALTER TABLE cookmaster.users AUTO_INCREMENT = 1;');
   })
 
   beforeEach(() => {
     cy.visit('http://localhost:3000/');
   })
  
-  it("Validar se o botão minhas receitas está redirecionando para página das minhas receitas", () => {
+  it('Validar se o botão minhas receitas está redirecionando para página das minhas receitas', () => {
     login(Cypress.env('login'), Cypress.env('password'));
     clickButton('[data-testid="minhas-receitas"]');
     verifyContainsUrl('/me/recipes');
   })
 
-  it("Validar se na página está listando as minhas receitas minhas receitas", () => {
+  it('Validar se na página está listando as minhas receitas minhas receitas', () => {
     login(Cypress.env('login'), Cypress.env('password'));
     clickButton('[data-testid="minhas-receitas"]');
     verifyContainsText('Receita de Bolo');
   })
 
-  it("Validar se quando o usuário não está logado tentar acessar a url das minhas receitas seja redirecionado para a tela de login", () => {
+  it('Validar se quando o usuário não está logado tentar acessar a url das minhas receitas seja redirecionado para a tela de login', () => {
     cy.visit('http://localhost:3000/me/recipes');
     verifyContainsUrl('/login');
   })

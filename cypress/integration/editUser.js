@@ -9,30 +9,30 @@ import {
   createTableUsers,
   createTableRecipes,
   insertUsers,
-  insertRecipes
+  insertRecipes,
 } from '../actions/actionBase';
 
 import { name, internet } from 'faker';
 
-describe("Crie uma página de editar usuário.", () => {
-  let randomName = name.firstName(); 
-  let randomEmail = internet.email();
-  let randomLast = name.lastName();
+describe('Crie uma página de editar usuário.', () => {
+  const randomName = name.firstName(); 
+  const randomEmail = internet.email();
+  const randomLast = name.lastName();
 
   before(() => {
     cy.task('queryDb', createDataBase());
-    cy.task('queryDb', "USE cookmaster;")
+    cy.task('queryDb', 'USE cookmaster;');
     cy.task('queryDb', createTableUsers());
     cy.task('queryDb', createTableRecipes());
     cy.task('queryDb', insertUsers());
     cy.task('queryDb', insertRecipes());
   })
 
-  after(() =>{
+  after(() => {
     cy.task('queryDb', 'DELETE FROM cookmaster.recipes;');
-    cy.task('queryDb', "SET FOREIGN_KEY_CHECKS = 0; ");
-    cy.task('queryDb', "DELETE FROM cookmaster.users;");
-    cy.task('queryDb', "ALTER TABLE cookmaster.users AUTO_INCREMENT = 1;");
+    cy.task('queryDb', 'SET FOREIGN_KEY_CHECKS = 0; ');
+    cy.task('queryDb', 'DELETE FROM cookmaster.users;');
+    cy.task('queryDb', 'ALTER TABLE cookmaster.users AUTO_INCREMENT = 1;');
   })
 
   beforeEach(() => {
@@ -43,13 +43,13 @@ describe("Crie uma página de editar usuário.", () => {
     cy.visit('http://localhost:3000/');
   })
  
-  it("Verificar se o botão editar usuário redireciona para tela de editar usuário", () => {
+  it('Verificar se o botão editar usuário redireciona para tela de editar usuário', () => {
     login(randomEmail, '12345678');
     clickButton('[data-testid="minha-conta"]');
     verifyContainsUrl('/me/edit');
   })
 
-  it("Validar alterar email", () => {
+  it('Validar alterar email', () => {
     login(randomEmail, '12345678');
     clickButton('[data-testid="minha-conta"]');
     clearFieldsUser()
@@ -58,7 +58,7 @@ describe("Crie uma página de editar usuário.", () => {
     getValueInput('[data-testid="email"]','emailalterado@gmail.com');
   })
 
-  it("Validar alterar nome", () => {
+  it('Validar alterar nome', () => {
     login(randomEmail, '12345678');
     clickButton('[data-testid="minha-conta"]');
     clearFieldsUser();
@@ -67,7 +67,7 @@ describe("Crie uma página de editar usuário.", () => {
     getValueInput('[data-testid="nome"]','ALTERADO');
   })
 
-  it("Validar alterar sobrenome.", () => {
+  it('Validar alterar sobrenome.', () => {
     login(randomEmail, '12345678');
     clickButton('[data-testid="minha-conta"]');
     clearFieldsUser();
@@ -76,7 +76,7 @@ describe("Crie uma página de editar usuário.", () => {
     getValueInput('[data-testid="sobrenome"]','ALTERADO');
   }) 
 
-  it("Validar alterar senha", () => {
+  it('Validar alterar senha', () => {
     login(randomEmail, '12345678');
     clickButton('[data-testid="minha-conta"]');
     clearFieldsUser();

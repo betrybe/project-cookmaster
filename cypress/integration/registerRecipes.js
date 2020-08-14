@@ -10,25 +10,24 @@ import {
   createTableUsers,
   createTableRecipes,
   insertUsers,
-  insertRecipes
+  insertRecipes,
 } from '../actions/actionBase';
 
-describe("Crie uma página de cadastro de receitas.", () => {
-
+describe('Crie uma página de cadastro de receitas.', () => {
   before(() => {
     cy.task('queryDb', createDataBase());
-    cy.task('queryDb', "USE cookmaster;")
+    cy.task('queryDb', 'USE cookmaster;');
     cy.task('queryDb', createTableUsers());
     cy.task('queryDb', createTableRecipes());
     cy.task('queryDb', insertUsers());
     cy.task('queryDb', insertRecipes());
   })
 
-  after(() =>{
+  after(() => {
     cy.task('queryDb', 'DELETE FROM cookmaster.recipes;');
-    cy.task('queryDb', "SET FOREIGN_KEY_CHECKS = 0; ");
-    cy.task('queryDb', "DELETE FROM cookmaster.users;");
-    cy.task('queryDb', "ALTER TABLE cookmaster.users AUTO_INCREMENT = 1;");
+    cy.task('queryDb', 'SET FOREIGN_KEY_CHECKS = 0;');
+    cy.task('queryDb', 'DELETE FROM cookmaster.users;');
+    cy.task('queryDb', 'ALTER TABLE cookmaster.users AUTO_INCREMENT = 1;');
   })
 
   beforeEach(() => {
@@ -36,13 +35,13 @@ describe("Crie uma página de cadastro de receitas.", () => {
     login(Cypress.env('login'), Cypress.env('password'));
   })
 
-  it("Verificar se o botão 'Nova Receita' direciona para página de cadastrar receitas", () => {
+  it('Verificar se o botão "Nova Receita" direciona para página de cadastrar receitas', () => {
     clickButton('[data-testid="nova-receita"]');
     verifyContainsUrl('/recipes/new');
     verifyContainsText('Nova Receita');
   })
 
-  it("Cadastrar uma receita", () => {
+  it('Cadastrar uma receita', () => {
     clickButton('[data-testid="nova-receita"]');
     insertText('[data-testid="nome-receita"]', 'Receita de pão');
     insertText('[data-testid="ingredientes"]', 'Trigo');
@@ -51,7 +50,7 @@ describe("Crie uma página de cadastro de receitas.", () => {
     clickButton('[data-testid="postar-receita"]');
   })
 
-  it("Remover um ingrediente da receita", () => {
+  it('Remover um ingrediente da receita', () => {
     clickButton('[data-testid="nova-receita"]');
     insertText('[data-testid="ingredientes"]', 'Trigo');
     clickButton('[data-testid="adicionar-ingrediente"]');
