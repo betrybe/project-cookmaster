@@ -20,17 +20,10 @@ CREATE TABLE recipes (
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
-SELECT * FROM users;
-
-
 INSERT INTO users (email, password, first_name, last_name)
 VALUES ('bruno.batista@gmail.com', '12345678', 'bruno', 'batista'),
 ('vanessa.morato@gmail.com', '12345678', 'vanessa', 'morato'),
 ('carolina.silva@gmail.com', '12345678', 'carolina', 'silva');
-
-SELECT * FROM users;
-
-SELECT * FROM recipes;
 
 INSERT INTO recipes (user_id, user, name, ingredients, instructions)
 VALUES (1, 'bruno batista', 'Receita de Bolo', 'Farinha,ovo,leite', '30 minutos no forno'),
@@ -40,4 +33,5 @@ VALUES (1, 'bruno batista', 'Receita de Bolo', 'Farinha,ovo,leite', '30 minutos 
        (1, 'bruno batista', 'Receita de mexidão', 'ovo,preseunto,queijo', 'mistura e frita na frigideira');
 
 
+SELECT * FROM users;
 SELECT * FROM recipes;

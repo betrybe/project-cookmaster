@@ -1,9 +1,9 @@
-import { 
-  verifyContainsText, 
-  clickLinkOrText, 
-  clickButton, 
-  verifyContainsUrl, 
-  verifyElementNotVisible, 
+import {
+  verifyContainsText,
+  clickLinkOrText,
+  clickButton,
+  verifyContainsUrl,
+  verifyElementNotVisible,
   verifyElementVisible,
   login,
   createDataBase,
@@ -34,7 +34,7 @@ describe("Crie uma tela para visualizar uma receita específica.", () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000/');
   })
-    
+
   it("Verificar se consigo acessar uma receita específica", () => {
     clickLinkOrText('Ver mais');
     verifyContainsText('Receita de Bolo');
@@ -45,14 +45,14 @@ describe("Crie uma tela para visualizar uma receita específica.", () => {
     clickLinkOrText('Ver mais');
     verifyContainsText('Receita de Bolo');
   })
-  
+
   it("Quando estou logado verfico se na página de uma receita específica existe os botões 'Editar Receita' e 'Excluir Receita'", () => {
     login(Cypress.env('login'), Cypress.env('password'));
     clickLinkOrText('Ver mais');
     verifyElementVisible('[data-testid="editar-receita"]');
     verifyElementVisible('[data-testid="excluir-receita"]');
   })
-  
+
   it("Verificar se na página da receita irá exibir o 'título da receita', os 'ingredientes', e a 'forma de preparo' da receita", () => {
     login(Cypress.env('login'), Cypress.env('password'));
     clickLinkOrText('Ver mais');
@@ -82,4 +82,3 @@ describe("Crie uma tela para visualizar uma receita específica.", () => {
     verifyElementNotVisible('[data-testid="excluir-receita"]');
   })
 });
-  

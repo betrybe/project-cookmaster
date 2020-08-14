@@ -1,7 +1,7 @@
-import { 
-  verifyContainsText, 
-  verifyElementNotVisible, 
-  verifyElementVisible, 
+import {
+  verifyContainsText,
+  verifyElementNotVisible,
+  verifyElementVisible,
   login,
   createDataBase,
   createTableUsers,

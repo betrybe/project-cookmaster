@@ -1,5 +1,5 @@
-import { 
-  verifyContainsText, 
+import {
+  verifyContainsText,
   login,
   clickButton,
   insertText,
@@ -14,7 +14,7 @@ import {
 } from '../actions/actionBase';
 
 import { name } from 'faker';
-  
+
 describe("Crie uma página de edição de receitas.", () => {
   let randomName = name.title();
   let randomIngredient = name.firstName();
@@ -63,7 +63,7 @@ describe("Crie uma página de edição de receitas.", () => {
     clickLastElement('a');
     verifyContainsText(randomIngredient);
   })
- 
+
   it("Editar o modo de preparo da receita", () => {
     clickButton('[data-testid="minhas-receitas"]');
     clickLastElement('a');

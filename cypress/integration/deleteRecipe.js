@@ -1,5 +1,7 @@
-import { 
-  verifyContainsText, 
+/// <reference types="Cypress" />
+
+import {
+  verifyContainsText,
   login,
   clickButton,
   insertText,
@@ -12,7 +14,7 @@ import {
   insertUsers,
   insertRecipes
 } from '../actions/actionBase';
- 
+
 describe("Crie uma página de exclusão de uma receita.", () => {
 
   before(() => {
@@ -36,7 +38,7 @@ describe("Crie uma página de exclusão de uma receita.", () => {
     login(Cypress.env('login'), Cypress.env('password'));
     createRecipe();
   })
- 
+
   it("Tentar excluir uma receita passando a senha errada e verificar a mensagem de erro", () => {
     clickLastElement('a');
     clickButton('[data-testid="excluir-receita"]');
@@ -55,4 +57,3 @@ describe("Crie uma página de exclusão de uma receita.", () => {
     verifyContainsText('Receitas');
   })
 });
-    

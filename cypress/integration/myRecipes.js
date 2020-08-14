@@ -1,5 +1,5 @@
-import { 
-  verifyContainsText, 
+import {
+  verifyContainsText,
   login,
   clickButton,
   verifyContainsUrl,
@@ -9,7 +9,7 @@ import {
   insertUsers,
   insertRecipes
 } from '../actions/actionBase';
- 
+
 describe("Crie uma página de 'Minhas receitas'.", () => {
 
   before(() => {

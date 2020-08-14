@@ -13,7 +13,7 @@ import {
 } from '../actions/actionBase';
 
 import { name, internet } from 'faker';
- 
+
 describe("Crie uma página de editar usuário.", () => {
   let randomName = name.firstName(); 
   let randomEmail = internet.email();

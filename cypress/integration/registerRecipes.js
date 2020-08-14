@@ -1,5 +1,5 @@
-import { 
-  verifyContainsText, 
+import {
+  verifyContainsText,
   login,
   clickButton,
   verifyContainsUrl,
@@ -12,7 +12,7 @@ import {
   insertUsers,
   insertRecipes
 } from '../actions/actionBase';
-  
+
 describe("Crie uma página de cadastro de receitas.", () => {
 
   before(() => {
@@ -41,7 +41,7 @@ describe("Crie uma página de cadastro de receitas.", () => {
     verifyContainsUrl('/recipes/new');
     verifyContainsText('Nova Receita');
   })
-  
+
   it("Cadastrar uma receita", () => {
     clickButton('[data-testid="nova-receita"]');
     insertText('[data-testid="nome-receita"]', 'Receita de pão');
@@ -50,7 +50,7 @@ describe("Crie uma página de cadastro de receitas.", () => {
     insertText('[data-testid="modo-de-preparo"]', '20 minutos no forno');
     clickButton('[data-testid="postar-receita"]');
   })
-  
+
   it("Remover um ingrediente da receita", () => {
     clickButton('[data-testid="nova-receita"]');
     insertText('[data-testid="ingredientes"]', 'Trigo');
@@ -59,4 +59,3 @@ describe("Crie uma página de cadastro de receitas.", () => {
     verifyNotContainsText('Trigo');
   }) 
 });
-  

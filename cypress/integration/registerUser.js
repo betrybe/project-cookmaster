@@ -1,6 +1,6 @@
-import { 
-  registerUser, 
-  clickButton, 
+import {
+  registerUser,
+  clickButton,
   verifyContainsText,
   createDataBase,
   createTableUsers,
@@ -10,7 +10,7 @@ import {
 } from '../actions/actionBase';
 
 import { name, internet } from 'faker';
-  
+
 describe("Crie uma página de cadastro de usuários", () => {
   let randomName = name.firstName(); 
   let randomEmail = internet.email();
@@ -35,7 +35,7 @@ describe("Crie uma página de cadastro de usuários", () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000/');
   })
-    
+
   it("Criar um usuário com sucesso", () => {
     clickButton('[data-testid="login"]');
     clickButton('[data-testid="cadastrar"]');
@@ -78,4 +78,3 @@ describe("Crie uma página de cadastro de usuários", () => {
     verifyContainsText('O segundo nome deve ter, no mínimo, 3 caracteres, sendo eles apenas letras');
   })
 });
-  

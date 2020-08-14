@@ -1,5 +1,5 @@
-import { 
-  verifyContainsText, 
+import {
+  verifyContainsText,
   login,
   clickButton,
   insertText,
@@ -11,7 +11,7 @@ import {
   insertUsers,
   insertRecipes
 } from '../actions/actionBase';
- 
+
 describe("Cria uma página de buscar de receitas.", () => {
 
   before(() => {
@@ -34,7 +34,7 @@ describe("Cria uma página de buscar de receitas.", () => {
     cy.visit('http://localhost:3000/');
     login(Cypress.env('login'), Cypress.env('password'));
   })
- 
+
   it("Verificar se o botão 'Buscar Receitas' redireciona para a página das minhas receitas", () => {
     clickButton('[data-testid="buscar-receita"]');
     verifyContainsUrl('/recipes/search');
@@ -54,4 +54,3 @@ describe("Cria uma página de buscar de receitas.", () => {
     verifyNotContainsText('Receita de que não existe');
   })
 });
-    
