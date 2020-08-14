@@ -43,13 +43,13 @@ describe("Crie uma página de editar usuário.", () => {
     cy.visit('http://localhost:3000/');
   })
  
-  it("Verificar se o botão editar usuário redireciona para tela de editar usuário.", () => {
+  it("Verificar se o botão editar usuário redireciona para tela de editar usuário", () => {
     login(randomEmail, '12345678');
     clickButton('[data-testid="minha-conta"]');
     verifyContainsUrl('/me/edit');
   })
 
-  it("Validar alterar email.", () => {
+  it("Validar alterar email", () => {
     login(randomEmail, '12345678');
     clickButton('[data-testid="minha-conta"]');
     clearFieldsUser()
@@ -58,7 +58,7 @@ describe("Crie uma página de editar usuário.", () => {
     getValueInput('[data-testid="email"]','emailalterado@gmail.com');
   })
 
-  it("Validar alterar nome.", () => {
+  it("Validar alterar nome", () => {
     login(randomEmail, '12345678');
     clickButton('[data-testid="minha-conta"]');
     clearFieldsUser();
@@ -76,7 +76,7 @@ describe("Crie uma página de editar usuário.", () => {
     getValueInput('[data-testid="sobrenome"]','ALTERADO');
   }) 
 
-  it("Validar alterar senha.", () => {
+  it("Validar alterar senha", () => {
     login(randomEmail, '12345678');
     clickButton('[data-testid="minha-conta"]');
     clearFieldsUser();

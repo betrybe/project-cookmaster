@@ -126,7 +126,7 @@ Não estamos avaliando o **estilo** da página. Cores, tamanhos de texto e afins
 
 ## ⚠️ Leia-os atentamente e siga à risca o que for pedido. ⚠️
 
-Iremos apenas pedir que adicone data-testid em alguns elemetos, e algumas tags e textos especificos, então siga a risca o que iremos pedir nos requisitos, para que a automação funcione.
+Iremos apenas pedir que adicone `data-testid` em alguns elemetos, e algumas tags e textos especificos, então siga a risca o que iremos pedir nos requisitos, para que a automação funcione.
 
 O não cumprimento de um requisito, total ou parcialmente, impactará em sua avaliação.
 
@@ -163,47 +163,47 @@ Para cada receita, deve ser mostrado apenas o nome da receita e o nome da pessoa
 
 Um botão "Nova receita" deve ser exibido **apenas quando houver um usuário logado**.
 
-Tela home:
+### Tela da home:
 
 O página deverá ter o texto 'Cookmaster'.
 
 O página deverá ter o texto 'Receitas'.
 
-O link 'Ver mais' deverá ser utilizado o elemento `<a>Ver mais</a>`
+O link 'Ver mais' deverá estar num elemento `<a>` com o texto `Ver mais`. Algo na linha de: `<a href="Link">Ver mais</a>`
 
-O botão 'Nova Receita' deverá conter o data-testid="nova-receita".
+O botão 'Nova Receita' deverá conter o `data-testid="nova-receita"`
 (Esse botão deverá ficar visível na tela apenas estando logado.)
 
-O botão 'Buscar Receita' deverá conter o data-testid="buscar-receita".
+O botão 'Buscar Receita' deverá conter o `data-testid="buscar-receita"`
 (Esse botão deverá ficar visível na tela estando logado ou não)
 
-O 'Login' deverá conter a tag data-testid="login".
+O 'Login' deverá conter a tag `data-testid="login"`
 
-O 'Logout' deverá conter a tag data-testid="logout". 
+O 'Logout' deverá conter a tag `data-testid="logout"`
 
 ![Tela Home](./public/home_nao_autenticado.png)
 
-Tela de login:
+### Tela de login:
 
 A página deve ser acessível através da rota principal (`/login`). E deverá ser acessada pelo 'Login' da página Home.
 
-O campo 'Email' deverá conter a tag data-testid="email".
+O campo 'Email' deverá conter a tag `data-testid="email"`
 
-O campo 'Senha' deverá conter a tag data-testid="senha".
+O campo 'Senha' deverá conter a tag `data-testid="senha"`
 
-O botão 'Login' deverá conter a tag data-testid="entrar".
+O botão 'Login' deverá conter a tag `data-testid="entrar"`
 
 ![Tela Home](./public/login.png)
 
 #### As seguintes verificações serão feitas:
 
-**[Verificar se estou na home e tem os títulos 'Cookmaster' e 'Receitas'.]**
+**[Verificar se estou na home e tem os títulos 'Cookmaster' e 'Receitas']**
 
-**[Verificar se não existe o botão 'Nova Receita' quando acesso home sem estar logado.]**
+**[Verificar se não existe o botão 'Nova Receita' quando acesso home sem estar logado]**
 
-**[Verificar se existe o botão 'Nova Receita' quando estou logado e acessei a home.]**
+**[Verificar se existe o botão 'Nova Receita' quando estou logado e acessei a home]**
 
-**[Verificar se existe receita na tela com 'nome da receita', 'nome do usuário' e o link da receita 'Ver mais'.]**
+**[Verificar se existe receita na tela com 'nome da receita', 'nome do usuário' e o link da receita 'Ver mais']**
 
 ### 2 - Crie uma página de cadastro de usuários.
 
@@ -213,49 +213,49 @@ A validação dos campos deve acontecer no backend, e uma mensagem deve ser envi
 
 **⚠️ Atenção ⚠️**: O sistema de autenticação espera que as funções `findUserByEmail` e `findUserById` retornem um objeto com, pelo menos, os campos `email`, `password` e `id`. Se você alterar o nome desses campos, precisará alterar o código de login.
 
-Adicione na tela de login o botão ou link 'Cadastre-se' e deverá conter a tag data-testid="cadastrar".
+Adicione na tela de login o botão ou link 'Cadastre-se' que deverá conter a tag `data-testid="cadastrar"`
 
-Tela de Cadastro:
+### Tela de Cadastro:
 
-O campo 'Email' deverá conter a tag data-testid="email" 
+O campo 'Email' deverá conter a tag `data-testid="email"` 
 
-O campo 'Senha' deverá conter a tag data-testid="senha"
+O campo 'Senha' deverá conter a tag `data-testid="senha"`
 
-O campo 'Confirmar Senha' deverá conter a tag data-testid="confirmar-senha" 
+O campo 'Confirmar Senha' deverá conter a tag `data-testid="confirmar-senha"` 
 
-O campo 'Nome' deverá conter a tag data-testid="nome"
+O campo 'Nome' deverá conter a tag `data-testid="nome"`
 
-O campo 'Sobrenome' deverá conter a tag data-testid="sobrenome"
+O campo 'Sobrenome' deverá conter a tag `data-testid="sobrenome"`
 
-botao 'Cadastar-se' deverá conter a tag data-testid="cadastrar"
+botao 'Cadastar-se' deverá conter a tag `data-testid="cadastrar"`
 
-botao 'Login' deverá conter a tag data-testid="login"
+botao 'Login' deverá conter a tag `data-testid="login"`
 
 ![Tela Cadastro de usuário](./public/cadastro.png)
 
 #### As seguintes verificações serão feitas:
 
-**[Criar um usuário com sucesso.]**
+**[Criar um usuário com sucesso]**
 
 - Ao cadastar o usário deverá aparecer a mensagem "Cadastro efetuado com sucesso!"
 
-**[Validar o campo email.]**
+**[Validar o campo email]**
 
 - Ao cadastar um email inválido deverá aparecer a mensagem "O email deve ter o formato email@mail.com"
 
-**[Validar o campo senha.]**
+**[Validar o campo senha]**
 
 - Ao cadastar uma senha inválida deverá aparecer a mensagem "A senha deve ter pelo menos 6 caracteres"
 
-**[Validar campos confirmar senha.]**
+**[Validar campos confirmar senha]**
 
 - Ao cadastar um confirmar senha inválida deverá aparecer a mensagem "As senhas tem que ser iguais"
 
-**[Validar campos nome.]**
+**[Validar campos nome]**
 
 - Ao cadastar um nome inválido deverá aparecer a mensagem "O primeiro nome deve ter, no mínimo, 3 caracteres, sendo eles apenas letras"
 
-**[Validar campos sobrenome.]**
+**[Validar campos sobrenome]**
 
 - Ao cadastar um sobrenome inválido deverá aparecer a mensagem "O segundo nome deve ter, no mínimo, 3 caracteres, sendo eles apenas letras"
 
@@ -269,33 +269,33 @@ Esta página deve exibir o título, os ingredientes, e a forma de preparo da rec
 
 > Dica: esse é um dos casos no qual você pode utilizar o `authMiddleware` passando `false` para o parâmetro `required`, e passar o conteúdo de `req.user` para a view, o que o permitirá determinar se existe um usuário logado e, portanto, se os botões devem ser exibidos.
 
-Tela sem estar logado:
+### Tela sem estar logado:
 
 ![Tela Receita especifica](./public/receita_especifica.png)
 
-Tela sem estando logado:
+### Tela com usuário logado:
 
-O botão 'Editar Receita' deverá conter a tag data-testid="editar-receita"
+O botão 'Editar Receita' deverá conter a tag `data-testid="editar-receita"`
 
-O botão 'Excluir Receita' deverá conter a tag data-testid="excluir-receita"
+O botão 'Excluir Receita' deverá conter a tag `data-testid="excluir-receita"`
 
 ![Tela Receita especifica](./public/receita_especifica_autenticada.png)
 
 #### As seguintes verificações serão feitas:
 
-**[Verificar se consigo acessar uma receita específica.]**
+**[Verificar se consigo acessar uma receita específica]**
 
-**[Verificar se consigo acessar uma receita específica depois que faço login.]**
+**[Verificar se consigo acessar uma receita específica depois que faço login]**
 
-**[Quando estou logado verfico se na página de uma receita específica existe os botões 'Editar Receita' e 'Excluir Receita'.]**
+**[Quando estou logado verfico se na página de uma receita específica existe os botões 'Editar Receita' e 'Excluir Receita']**
 
-**[Verificar se na página da receita irá exibir o 'título da receita', os 'ingredientes', e a 'forma de preparo' da receita.]**
+**[Verificar se na página da receita irá exibir o 'título da receita', os 'ingredientes', e a 'forma de preparo' da receita]**
 
-**[Verificar se o botão 'Editar Receita' leva para página de edição de receita.]**
+**[Verificar se o botão 'Editar Receita' leva para página de edição de receita]**
 
-**[Verificar se o botão 'Excluir Receita' leva para página de exclusão de receita.]**
+**[Verificar se o botão 'Excluir Receita' leva para página de exclusão de receita]**
 
-**[Verificar se quando não estou logado os botões 'Editar Receita' e 'Excluir Receita' não podem estar visíveis na tela.]**
+**[Verificar se quando não estou logado os botões 'Editar Receita' e 'Excluir Receita' não podem estar visíveis na tela]**
 
 ### 4 - Cria uma página de buscar de receitas.
 
@@ -307,25 +307,25 @@ No backend, o valor do input de texto estará acessível através da propriedade
 
 Para realizar a pesquisa, o controller de receitas deve solicitar ao model que pesquise por receitas **contendo em seu nome** o valor digitado no input de pesquisa.
 
-Na Tela inicial('/') acidione o botão 'Buscar Receitas' deverá conter a tag data-testid="buscar-receita", e ao clicar deverá redirecionar para a página de 'Buscar Receitas'.
+Na Tela inicial('/') acidione o botão 'Buscar Receitas' deverá conter a tag `data-testid="buscar-receita"`, e ao clicar deverá redirecionar para a página de 'Buscar Receitas'.
 
 O botão 'Buscar Receitas' ficará sempre visível an tela home estando logado ou não.
 
-Tela de Buscar receitas:
+### Tela de Buscar receitas:
 
-O campo input deverá conter a tag data-testid="receita"
+O campo input deverá conter a tag `data-testid="receita"`
 
-O botão 'Buscar' deverá conter a tag data-testid="buscar" 
+O botão 'Buscar' deverá conter a tag `data-testid="buscar"` 
 
 ![Tela Pesquisa Receita](./public/busca_receita.png)
 
 #### As seguintes verificações serão feitas:
 
-**[Verificar se o botão 'Buscar Receitas' redireciona para a página das minhas receitas.]**
+**[Verificar se o botão 'Buscar Receitas' redireciona para a página das minhas receitas]**
 
-**[Validar se consigo fazer uma busca de receita.]**
+**[Validar se consigo fazer uma busca de receita]**
 
-**[Validar se não possível buscar uma receita que não existe.]**
+**[Validar se não possível buscar uma receita que não existe]**
 
 #### Funções administrativas
 
@@ -346,29 +346,29 @@ A receita deve ter os campos ID, Nome, Ingredientes, Modo de preparo e Autor. Si
 
 O campo dos ingredientes terá que ser um campo input onde pode adicionar varios ingredientes e tambem poderá exlcuir ingredientes. Sendo apresentado em uma lista com um botão 'Excluir Ingrediente' para cada ingrediente.
 
-Na Tela inicial('/') acidione o botão 'Nova Receita' deverá conter a tag data-testid="nova-receita", e ao clicar deverá redirecionar para a página de 'Cadastar Receita'. E só poderá ser visualizado caso esteja logado.
+Na Tela inicial('/') acidione o botão 'Nova Receita' deverá conter a tag `data-testid="nova-receita"`, e ao clicar deverá redirecionar para a página de 'Cadastar Receita'. E só poderá ser visualizado caso esteja logado.
 
-Tela de Cadastro de Receita:
+### Tela de Cadastro de Receita:
 
-O campo input 'Nome da Receita' deverá conter a tag data-testid="nome-receita"
+O campo input 'Nome da Receita' deverá conter a tag `data-testid="nome-receita"`
 
-O campo input 'Ingredientes' deverá conter a tag data-testid="ingredientes".
+O campo input 'Ingredientes' deverá conter a tag `data-testid="ingredientes"`
 
-O botao 'Adicionar Ingrediente' deverá conter a tag data-testid="adicionar-ingrediente"
+O botao 'Adicionar Ingrediente' deverá conter a tag `data-testid="adicionar-ingrediente"`
 
-O campo input 'Modo de Preparo' deverá conter a tag data-testid="modo-de-preparo"
+O campo input 'Modo de Preparo' deverá conter a tag `data-testid="modo-de-preparo"`
 
-O botao 'Salvar Receita' deverá conter a tag data-testid="postar-receita"
+O botao 'Salvar Receita' deverá conter a tag `data-testid="postar-receita"`
 
-![Tela Pesquisa Receita](./public/cadastro_receita.png)
+![Tela cadastro de Receita](./public/cadastro_receita.png)
 
 #### As seguintes verificações serão feitas:
 
-**[Verificar se o botão 'Nova Receita' direciona para página de cadastrar receitas.]**
+**[Verificar se o botão 'Nova Receita' direciona para página de cadastrar receitas]**
 
-**[Cadastrar uma receita.]**
+**[Cadastrar uma receita]**
 
-**[Remover um ingrediente da receita.]**
+**[Remover um ingrediente da receita]**
 
 ### 6 - Crie uma página de edição de receitas.
 
@@ -384,27 +384,27 @@ A validação dos campos deve ser realizada no backend.
 
 **⚠️ Atenção ⚠️**: Lembre-se que a tela não é a única forma de acessar os endpoints. Uma requisição feita utilizando o Postman para o endpoint `POST /recipes/:id` **não deve** alterar o ID da receita ou o nome de quem a cadastrou. Para isso, garanta que não está enviando esses campos ao banco de dados na função de update do seu model de receitas.
 
-Tela de Editar de Receita:
+### Tela de Editar de Receita:
 
-O campo input 'Nome da Receita' deverá conter a tag data-testid="nome-receita"
+O campo input 'Nome da Receita' deverá conter a tag `data-testid="nome-receita"`
 
-O campo input 'Ingredientes' deverá conter a tag data-testid="ingredientes".
+O campo input 'Ingredientes' deverá conter a tag `data-testid="ingredientes"`
 
-O botao 'Adicionar Ingrediente' deverá conter a tag data-testid="adicionar-ingrediente"
+O botao 'Adicionar Ingrediente' deverá conter a tag `data-testid="adicionar-ingrediente"`
 
-O campo input 'Modo de Preparo' deverá conter a tag data-testid="modo-de-preparo"
+O campo input 'Modo de Preparo' deverá conter a tag `data-testid="modo-de-preparo"`
 
-O botao 'Salvar Receita' deverá conter a tag data-testid="postar-receita"
+O botao 'Salvar Receita' deverá conter a tag `data-testid="postar-receita"`
 
-![Tela Pesquisa Receita](./public/editar_receita.png)
+![Tela editar Receita](./public/editar_receita.png)
 
 #### As seguintes verificações serão feitas:
 
-**[Editar o nome da receita.]**
+**[Editar o nome da receita]**
 
-**[Editar os ingredientes da receita.]**
+**[Editar os ingredientes da receita]**
 
-**[Editar o modo de preparo da receita.]**
+**[Editar o modo de preparo da receita]**
 
 ### 7 - Crie uma página de exclusão de uma receita.
 
@@ -416,21 +416,21 @@ A receita só deve ser excluída caso a senha esteja correta. Caso ela esteja in
 
 Caso a receita seja excluída com sucesso, a pessoa deve ser redirecionada à página de listagem de receitas.
 
-Tela de Excluir Receita:
+### Tela de Excluir Receita:
 
-O campo input 'Senha' deverá conter a tag data-testid="senha" 
-O botão 'Confirmar' deverá conter a tag data-testid="confirmar"
-O botão 'Cancelar' deverá conter a tag data-testid="cancelar"
+O campo input 'Senha' deverá conter a tag `data-testid="senha"` 
+O botão 'Confirmar' deverá conter a tag `data-testid="confirmar"`
+O botão 'Cancelar' deverá conter a tag `data-testid="cancelar"`
 
-![Tela Pesquisa Receita](./public/excluir_receita.png)
+![Tela Excluir Receita](./public/excluir_receita.png)
 
 #### As seguintes verificações serão feitas:
 
-**[Tentar excluir uma receita passando a senha errada e verificar a mensagem de erro.]**
+**[Tentar excluir uma receita passando a senha errada e verificar a mensagem de erro]**
 
 Ao inserir a senha errada deverá mostrar a mensagem 'Senha Incorreta.'
 
-**[Excluir receita com sucesso e verificar se foi redirecionada à página de listagem de receitas.]**
+**[Excluir receita com sucesso e verificar se foi redirecionada à página de listagem de receitas]**
 
 ### 8 - Crie uma página de "Minhas receitas"
 
@@ -442,19 +442,19 @@ Caso uma pessoa que não está logada acesse essa página, ela deve ser redireci
 
 > Lembrete: o ID do usuário logado está disponível em `req.user.id`.
 
-Na Tela inicial('/') acidione o botão 'Minhas Receitas' deverá conter a tag data-testid="minhas-receitas", e ao clicar deverá redirecionar para a página de 'Minhas Receitas'. E só poderá ser visualizado caso esteja logado.
+Na Tela inicial('/') acidione o botão 'Minhas Receitas' deverá conter a tag `data-testid="minhas-receitas"`, e ao clicar deverá redirecionar para a página de 'Minhas Receitas'. E só poderá ser visualizado caso esteja logado.
 
-Tela de Minhas Receitas:
+### Tela de Minhas Receitas:
 
-![Tela Pesquisa Receita](./public/minhas_receitas.png)
+![Tela minhas Receita](./public/minhas_receitas.png)
 
 #### As seguintes verificações serão feitas:
 
-**[Validar se o botão minhas receitas está redirecionando para página das minhas receitas.]**
+**[Validar se o botão minhas receitas está redirecionando para página das minhas receitas]**
 
-**[Validar se na página está listando as minhas receitas minhas receitas.]**
+**[Validar se na página está listando as minhas receitas minhas receitas]**
 
-**[Validar se quando o usuário não está logado tentar acessar a url das minhas receitas seja redirecionado para a tela de login.]**
+**[Validar se quando o usuário não está logado tentar acessar a url das minhas receitas seja redirecionado para a tela de login]**
 
 ## Bônus
 
@@ -470,23 +470,23 @@ Caso uma pessoa não logada tente acessar a página, ela deve ser redirecionada 
 
 O ID da pessoa não deve poder ser editado. Nem através da tela, nem através de uma request realizada pelo Postman. Para isso, garanta que seu model não envia esse campo para o banco de dados.
 
-Na Tela inicial('/') acidione o botão 'Minha Conta' deverá conter a tag data-testid="minha-conta", e ao clicar deverá redirecionar para a página de 'Editar Usuário'. E só poderá ser visualizado caso esteja logado.
+Na Tela inicial('/') acidione o botão 'Minha Conta' deverá conter a tag `data-testid="minha-conta"`, e ao clicar deverá redirecionar para a página de 'Editar Usuário'. E só poderá ser visualizado caso esteja logado.
 
-Tela de Editar Usuario:
+### Tela de Editar Usuario:
 
 ![Tela Editar Usuário](./public/editar_usuario.png)
 
 #### As seguintes verificações serão feitas:
 
-**[Verificar se o botão editar usuário redireciona para tela de editar usuário.]**
+**[Verificar se o botão editar usuário redireciona para tela de editar usuário]**
 
-**[Validar alterar email.]**
+**[Validar alterar email]**
 
-**[Validar alterar nome.]**
+**[Validar alterar nome]**
 
-**[Validar alterar sobrenome.]**
+**[Validar alterar sobrenome]**
 
-**[Validar alterar senha.]**
+**[Validar alterar senha]**
 
 ---
 

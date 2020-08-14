@@ -33,16 +33,16 @@ describe("Crie uma página de cadastro de receitas.", () => {
 
   beforeEach(() => {
     cy.visit('http://localhost:3000/');
-    login('bruno.batista@gmail.com', '12345678');
+    login(Cypress.env('login'), Cypress.env('password'));
   })
 
-  it("Verificar se o botão 'Nova Receita' direciona para página de cadastrar receitas.", () => {
+  it("Verificar se o botão 'Nova Receita' direciona para página de cadastrar receitas", () => {
     clickButton('[data-testid="nova-receita"]');
     verifyContainsUrl('/recipes/new');
     verifyContainsText('Nova Receita');
   })
   
-  it("Cadastrar uma receita.", () => {
+  it("Cadastrar uma receita", () => {
     clickButton('[data-testid="nova-receita"]');
     insertText('[data-testid="nome-receita"]', 'Receita de pão');
     insertText('[data-testid="ingredientes"]', 'Trigo');
@@ -51,7 +51,7 @@ describe("Crie uma página de cadastro de receitas.", () => {
     clickButton('[data-testid="postar-receita"]');
   })
   
-  it("Remover um ingrediente da receita.", () => {
+  it("Remover um ingrediente da receita", () => {
     clickButton('[data-testid="nova-receita"]');
     insertText('[data-testid="ingredientes"]', 'Trigo');
     clickButton('[data-testid="adicionar-ingrediente"]');

@@ -17,8 +17,8 @@ import { name } from 'faker';
   
 describe("Crie uma página de edição de receitas.", () => {
   let randomName = name.title();
-  let randonIngredient = name.firstName();
-  let randonPrepare = name.firstName();
+  let randomIngredient = name.firstName();
+  let randomPrepare = name.firstName();
 
   before(() => {
     cy.task('queryDb', createDataBase());
@@ -38,11 +38,11 @@ describe("Crie uma página de edição de receitas.", () => {
 
   beforeEach(() => {
     cy.visit('http://localhost:3000/');
-    login('bruno.batista@gmail.com', '12345678');
+    login(Cypress.env('login'), Cypress.env('password'));
     createRecipe();
   })
 
-  it("Editar o nome da receita.", () => {
+  it("Editar o nome da receita", () => {
     clickButton('[data-testid="minhas-receitas"]');
     clickLastElement('a');
     clickButton('[data-testid="editar-receita"]');
@@ -52,27 +52,27 @@ describe("Crie uma página de edição de receitas.", () => {
     verifyContainsText(randomName);
   })
 
-  it("Editar os ingredientes da receita.", () => {
+  it("Editar os ingredientes da receita", () => {
     clickButton('[data-testid="minhas-receitas"]');
     clickLastElement('a');
     clickButton('[data-testid="editar-receita"]');
     clickLinkOrText('Excluir Ingrediente');
-    insertText('[data-testid="ingredientes"]', randonIngredient);
+    insertText('[data-testid="ingredientes"]', randomIngredient);
     clickButton('[data-testid="adicionar-ingrediente"]');
     clickButton('[data-testid="postar-receita"]');
     clickLastElement('a');
-    verifyContainsText(randonIngredient);
+    verifyContainsText(randomIngredient);
   })
  
-  it("Editar o modo de preparo da receita.", () => {
+  it("Editar o modo de preparo da receita", () => {
     clickButton('[data-testid="minhas-receitas"]');
     clickLastElement('a');
     clickButton('[data-testid="editar-receita"]');
     cy.get('[data-testid="modo-de-preparo"]').clear();
-    insertText('[data-testid="modo-de-preparo"]', randonPrepare);
+    insertText('[data-testid="modo-de-preparo"]', randomPrepare);
     clickButton('[data-testid="postar-receita"]');
     clickLastElement('a');
-    verifyContainsText(randonPrepare);
+    verifyContainsText(randomPrepare);
   })
 });
   

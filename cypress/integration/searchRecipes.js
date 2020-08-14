@@ -32,22 +32,22 @@ describe("Cria uma página de buscar de receitas.", () => {
 
   beforeEach(() => {
     cy.visit('http://localhost:3000/');
-    login('bruno.batista@gmail.com', '12345678');
+    login(Cypress.env('login'), Cypress.env('password'));
   })
  
-  it("Verificar se o botão 'Buscar Receitas' redireciona para a página das minhas receitas.", () => {
+  it("Verificar se o botão 'Buscar Receitas' redireciona para a página das minhas receitas", () => {
     clickButton('[data-testid="buscar-receita"]');
     verifyContainsUrl('/recipes/search');
   })
 
-  it("Validar se consigo fazer uma busca de receita.", () => {
+  it("Validar se consigo fazer uma busca de receita", () => {
     clickButton('[data-testid="buscar-receita"]');
     insertText('[data-testid="receita"]','Receita de Bolo');
     clickButton('[data-testid="buscar"]');
     verifyContainsText('Receita de Bolo');
   })
 
-  it("Validar se não possível buscar uma receita que não existe.", () => {
+  it("Validar se não possível buscar uma receita que não existe", () => {
     clickButton('[data-testid="buscar-receita"]');
     insertText('[data-testid="receita"]','Receita de que não existe');
     clickButton('[data-testid="buscar"]');
