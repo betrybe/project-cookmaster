@@ -1,40 +1,40 @@
 {
-    "requirements": [
-      {
-        "description": "Crie uma tela de listagem de receitas.",
-        "bonus": false
-      },
-      {
-        "description": "Crie uma página de cadastro de usuários.",
-        "bonus": false
-      },
-      {
-        "description": "Crie uma tela para visualizar uma receita específica.",
-        "bonus": false
-      },
-      {
-        "description": "Cria uma página de buscar de receitas.",
-        "bonus": false
-      },
-      {
-        "description": "Crie uma página de cadastro de receitas.",
-        "bonus": false
-      },
-      {
-        "description": "Crie uma página de edição de receitas.",
-        "bonus": false
-      },
-      {
-        "description": "Crie uma página de exclusão de uma receita.",
-        "bonus": false
-      },
-      {
-        "description": "Crie uma página de 'Minhas receitas'",
-        "bonus": false
-      },
-      {
-        "description": "Crie uma página de editar usuário.",
-        "bonus": true
-      }
-    ]
-  }
+  "requirements": [
+    {
+      "description": "Crie uma tela de listagem de receitas.",
+      "bonus": false
+    },
+    {
+      "description": "Crie uma página de cadastro de usuários.",
+      "bonus": false
+    },
+    {
+      "description": "Crie uma tela para visualizar uma receita específica.",
+      "bonus": false
+    },
+    {
+      "description": "Cria uma página de buscar de receitas.",
+      "bonus": false
+    },
+    {
+      "description": "Crie uma página de cadastro de receitas.",
+      "bonus": false
+    },
+    {
+      "description": "Crie uma página de edição de receitas.",
+      "bonus": false
+    },
+    {
+      "description": "Crie uma página de exclusão de uma receita.",
+      "bonus": false
+    },
+    {
+      "description": "Crie uma página de 'Minhas receitas'",
+      "bonus": false
+    },
+    {
+      "description": "Crie uma página de editar usuário.",
+      "bonus": true
+    }
+  ]
+}
