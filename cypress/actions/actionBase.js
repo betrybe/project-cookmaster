@@ -80,44 +80,60 @@ export function createDataBase() {
 }
 
 export function createTableUsers() {
-  const createTableUsers = `CREATE TABLE IF NOT EXISTS 
+  const createTableUsers = `CREATE TABLE IF NOT EXISTS
                               cookmaster.users(
                                 id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-                                email VARCHAR(100) NOT NULL, 
-                                password VARCHAR(100) NOT NULL, 
-                                first_name VARCHAR(100) NOT NULL, 
+                                email VARCHAR(100) NOT NULL,
+                                password VARCHAR(100) NOT NULL,
+                                first_name VARCHAR(100) NOT NULL,
                                 last_name VARCHAR(100) NOT NULL);`
   return createTableUsers;
 }
 
 export function createTableRecipes(){
-  const createTableRecipes = `CREATE TABLE IF NOT EXISTS 
+  const createTableRecipes = `CREATE TABLE IF NOT EXISTS
                                 cookmaster.recipes(
-                                  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, 
-                                  user_id INT NOT NULL, user VARCHAR(100) NOT NULL, 
-                                  name VARCHAR(100) NOT NULL, 
-                                  ingredients VARCHAR(300) NOT NULL, 
-                                  instructions VARCHAR(300) NOT NULL, 
+                                  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+                                  user_id INT NOT NULL, user VARCHAR(100) NOT NULL,
+                                  name VARCHAR(100) NOT NULL,
+                                  ingredients VARCHAR(300) NOT NULL,
+                                  instructions VARCHAR(300) NOT NULL,
                                   FOREIGN KEY (user_id) REFERENCES users(id));`
   return createTableRecipes;
 }
 
 export function insertUsers(){
-  const insertUsers = `INSERT INTO cookmaster.users (email, password, first_name, last_name) 
-                       VALUES 
-                         ('bruno.batista@gmail.com', '12345678', 'bruno', 'batista'),
-                         ('vanessa.morato@gmail.com', '12345678', 'vanessa', 'morato'),
-                         ('carolina.silva@gmail.com', '12345678', 'carolina', 'silva');`
+  const insertUsers = `INSERT INTO cookmaster.users (email, password, first_name, last_name)
+                        VALUES
+                          ('bruno.batista@gmail.com', '12345678', 'bruno', 'batista'),
+                          ('vanessa.morato@gmail.com', '12345678', 'vanessa', 'morato'),
+                          ('carolina.silva@gmail.com', '12345678', 'carolina', 'silva');`
   return insertUsers;
 }
 
 export function insertRecipes(){
-  const insertRecipes = `INSERT INTO cookmaster.recipes (user_id, user, name, ingredients, instructions) 
-                         VALUES 
-                           (1, 'bruno batista', 'Receita de Bolo', 'Farinha,ovo,leite', '30 minutos no forno'),
-                           (1, 'bruno batista', 'Receita de Cookie', 'Farinha,ovo,leite', '20 minutos no forno'),
-                           (1, 'bruno batista', 'Receita de cafe', 'pó de cafe,agua', '10 minutos no fogo'),
-                           (1, 'bruno batista', 'Receita de miojo', 'miojo,agua', '3 minutos no fogo'),
-                           (1, 'bruno batista', 'Receita de mexidão', 'ovo,preseunto,queijo', 'mistura e frita na frigideira');`
+  const insertRecipes = `INSERT INTO cookmaster.recipes (user_id, user, name, ingredients, instructions)
+                          VALUES
+                            (1, 'bruno batista', 'Receita de Bolo', 'Farinha,ovo,leite', '30 minutos no forno'),
+                            (1, 'bruno batista', 'Receita de Cookie', 'Farinha,ovo,leite', '20 minutos no forno'),
+                            (1, 'bruno batista', 'Receita de cafe', 'pó de cafe,agua', '10 minutos no fogo'),
+                            (1, 'bruno batista', 'Receita de miojo', 'miojo,agua', '3 minutos no fogo'),
+                            (1, 'bruno batista', 'Receita de mexidão', 'ovo,preseunto,queijo', 'mistura e frita na frigideira');`
   return insertRecipes;
+}
+
+export function createAndInsertsDataBase() {
+  cy.task('queryDb', createDataBase());
+  cy.task('queryDb', 'USE cookmaster;');
+  cy.task('queryDb', createTableUsers());
+  cy.task('queryDb', createTableRecipes());
+  cy.task('queryDb', insertUsers());
+  cy.task('queryDb', insertRecipes());
+}
+
+export function dropAndTruncadeDataBase(){
+  cy.task('queryDb', 'DELETE FROM cookmaster.recipes;');
+  cy.task('queryDb', 'SET FOREIGN_KEY_CHECKS = 0;');
+  cy.task('queryDb', 'DELETE FROM cookmaster.users;');
+  cy.task('queryDb', 'ALTER TABLE cookmaster.users AUTO_INCREMENT = 1;');
 }

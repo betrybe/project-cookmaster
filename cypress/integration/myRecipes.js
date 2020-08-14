@@ -3,28 +3,17 @@ import {
   login,
   clickButton,
   verifyContainsUrl,
-  createDataBase,
-  createTableUsers,
-  createTableRecipes,
-  insertUsers,
-  insertRecipes,
+  createAndInsertsDataBase,
+  dropAndTruncadeDataBase,
 } from '../actions/actionBase';
 
 describe('Crie uma página de "Minhas receitas".', () => {
   before(() => {
-    cy.task('queryDb', createDataBase());
-    cy.task('queryDb', 'USE cookmaster;');
-    cy.task('queryDb', createTableUsers());
-    cy.task('queryDb', createTableRecipes());
-    cy.task('queryDb', insertUsers());
-    cy.task('queryDb', insertRecipes());
+    createAndInsertsDataBase();
   })
 
   after(() => {
-    cy.task('queryDb', 'DELETE FROM cookmaster.recipes;');
-    cy.task('queryDb', 'SET FOREIGN_KEY_CHECKS = 0;');
-    cy.task('queryDb', 'DELETE FROM cookmaster.users;');
-    cy.task('queryDb', 'ALTER TABLE cookmaster.users AUTO_INCREMENT = 1;');
+    dropAndTruncadeDataBase();
   })
 
   beforeEach(() => {
