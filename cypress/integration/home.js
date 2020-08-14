@@ -5,11 +5,51 @@ import {
   login 
 } from '../actions/actionBase';
 
+const Importer = require('mysql-import');
+import Sequelize from 'sequelize';
+const  my = require('mysql2');
+
 describe("Crie uma tela de listagem de receitas.", () => {
-  beforeEach(() => {
+/*
+  let sequelize;
+
+  before(() => {
+
+    // testar conexao ao banco
+  cy.task('teste');
+  const con = my.createConnection({host: '127.0.0.1', user: 'root', password: '12345678', database: 'cookmaster'})
+
+     const importer = new Importer(
+      { user: 'root', password: '12345678', host: 'localhost' }
+    );
+    
+    await importer.import('./cookmaster.sql');
+    
+    importer.disconnect();
+    
+
+
+    
+    const sequelize = new Sequelize(
+     'cookmaster',
+     'root@localhost',
+     '12345678',
+     {
+       dialect: 'mysql',
+       dialectModule: mysql2, // Needed to fix sequelize issues with WebPack
+       host: 'localhost',
+       port: 33060
+     }
+   ) 
+    await sequelize.query('TRUNCADE recipes;', { type: 'RAW' });
+    sequelize.close(); 
+  })
+  */
+  beforeEach( () => {
     cy.visit('http://localhost:3000/');
   })
-  
+
+
   it("Verificar se estou na home e tem os títulos 'Cookmaster' e 'Receitas'.", () => {
     verifyContainsText('Cookmaster');
     verifyContainsText('Receitas');

@@ -11,7 +11,17 @@
 // This function is called when a project is opened or re-opened (e.g. due to
 // the project's config changing)
 
+const Importer = require('mysql-import');
+const  my = require('mysql2');
+
 module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
+  on('task', {
+    'teste': () => {
+      const con = my.createConnection({host: '127.0.0.1', user: 'root', password: '12345678', database: 'cookmaster'});
+      return con;
+    }
+  })
 }
+
