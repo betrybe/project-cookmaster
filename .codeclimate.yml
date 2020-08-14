@@ -1,10 +1,8 @@
-version: '2' # required to adjust maintainability checks
-exclude_patterns:
-  - '**/*.test.js'
+version: "2"         # required to adjust maintainability checks
 checks:
   argument-count:
     config:
-      threshold: 6
+      threshold: 5
   complex-logic:
     config:
       threshold: 4
@@ -19,7 +17,7 @@ checks:
       threshold: 20
   method-lines:
     config:
-      threshold: 25
+      threshold: 45
   nested-control-flow:
     config:
       threshold: 4
@@ -27,16 +25,34 @@ checks:
     config:
       threshold: 4
   similar-code:
-    config:
-      threshold: # language-specific defaults. an override will affect all languages.
+    enabled: false
   identical-code:
     config:
       threshold: # language-specific defaults. an override will affect all languages.
+exclude_patterns:
+  - "**/*.test.js"
+  - "src/serviceWorker.js"
+  - "src/index.css"
+  - "src/App.css"
+  - "**/libs/*.css"
+  - "**/libs/*.js"
+  - "node_modules/"
 plugins:
-  editorconfig:
+  csslint:
     enabled: true
+    checks:
+      box-sizing:
+        enabled: false
+      fallback-colors:
+        enabled: false
+      box-model:
+          enabled: false
   eslint:
     enabled: true
+    config:
+      extensions:
+        - .js
+        - .jsx
   fixme:
     enabled: true
   nodesecurity:
