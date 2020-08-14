@@ -5,7 +5,12 @@ import {
   insertText,
   clickLinkOrText,
   createRecipe,
-  clickLastElement
+  clickLastElement,
+  createDataBase,
+  createTableUsers,
+  createTableRecipes,
+  insertUsers,
+  insertRecipes
 } from '../actions/actionBase';
 
 import { name } from 'faker';
@@ -14,6 +19,22 @@ describe("Crie uma página de edição de receitas.", () => {
   let randomName = name.title();
   let randonIngredient = name.firstName();
   let randonPrepare = name.firstName();
+
+  before(() => {
+    cy.task('queryDb', createDataBase());
+    cy.task('queryDb', "USE cookmaster;")
+    cy.task('queryDb', createTableUsers());
+    cy.task('queryDb', createTableRecipes());
+    cy.task('queryDb', insertUsers());
+    cy.task('queryDb', insertRecipes());
+  })
+
+  after(() =>{
+    cy.task('queryDb', 'DELETE FROM cookmaster.recipes;');
+    cy.task('queryDb', "SET FOREIGN_KEY_CHECKS = 0; ");
+    cy.task('queryDb', "DELETE FROM cookmaster.users;");
+    cy.task('queryDb', "ALTER TABLE cookmaster.users AUTO_INCREMENT = 1;");
+  })
 
   beforeEach(() => {
     cy.visit('http://localhost:3000/');
