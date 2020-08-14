@@ -136,7 +136,7 @@ O não cumprimento de um requisito, total ou parcialmente, impactará em sua ava
 
 Haverá um arquivo chamado `cookmaster.sql` onde já contém a criação de do banco e alguns inserts.
 
-Para rodar o arquivo basta rodar o comando 
+Para rodar o arquivo basta rodar o comando
 
 `mysql -u root -p`
 
@@ -217,11 +217,11 @@ Adicione na tela de login o botão ou link 'Cadastre-se' que deverá conter a ta
 
 ### Tela de Cadastro:
 
-O campo 'Email' deverá conter a tag `data-testid="email"` 
+O campo 'Email' deverá conter a tag `data-testid="email"`
 
 O campo 'Senha' deverá conter a tag `data-testid="senha"`
 
-O campo 'Confirmar Senha' deverá conter a tag `data-testid="confirmar-senha"` 
+O campo 'Confirmar Senha' deverá conter a tag `data-testid="confirmar-senha"`
 
 O campo 'Nome' deverá conter a tag `data-testid="nome"`
 
@@ -315,7 +315,7 @@ O botão 'Buscar Receitas' ficará sempre visível an tela home estando logado o
 
 O campo input deverá conter a tag `data-testid="receita"`
 
-O botão 'Buscar' deverá conter a tag `data-testid="buscar"` 
+O botão 'Buscar' deverá conter a tag `data-testid="buscar"`
 
 ![Tela Pesquisa Receita](./public/busca_receita.png)
 
@@ -418,7 +418,7 @@ Caso a receita seja excluída com sucesso, a pessoa deve ser redirecionada à p�
 
 ### Tela de Excluir Receita:
 
-O campo input 'Senha' deverá conter a tag `data-testid="senha"` 
+O campo input 'Senha' deverá conter a tag `data-testid="senha"`
 O botão 'Confirmar' deverá conter a tag `data-testid="confirmar"`
 O botão 'Cancelar' deverá conter a tag `data-testid="cancelar"`
 

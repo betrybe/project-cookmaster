@@ -37,8 +37,7 @@ describe('Crie uma página de edição de receitas.', () => {
   })
 
   beforeEach(() => {
-    cy.visit('http://localhost:3000/');
-    login(Cypress.env('login'), Cypress.env('password'));
+    accessHomeAndLogin();
     createRecipe();
   })
 
@@ -75,4 +74,3 @@ describe('Crie uma página de edição de receitas.', () => {
     verifyContainsText(randomPrepare);
   })
 });
-  

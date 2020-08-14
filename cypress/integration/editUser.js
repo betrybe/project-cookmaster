@@ -15,7 +15,7 @@ import {
 import { name, internet } from 'faker';
 
 describe('Crie uma página de editar usuário.', () => {
-  const randomName = name.firstName(); 
+  const randomName = name.firstName();
   const randomEmail = internet.email();
   const randomLast = name.lastName();
 
@@ -42,7 +42,7 @@ describe('Crie uma página de editar usuário.', () => {
     registerUser(randomEmail, '12345678', '12345678', randomName, randomLast);
     cy.visit('http://localhost:3000/');
   })
- 
+
   it('Verificar se o botão editar usuário redireciona para tela de editar usuário', () => {
     login(randomEmail, '12345678');
     clickButton('[data-testid="minha-conta"]');
@@ -74,7 +74,7 @@ describe('Crie uma página de editar usuário.', () => {
     registerUser(randomEmail, '12345678', '12345678', randomName, 'ALTERADO');
     clickButton('[data-testid="minha-conta"]');
     getValueInput('[data-testid="sobrenome"]','ALTERADO');
-  }) 
+  })
 
   it('Validar alterar senha', () => {
     login(randomEmail, '12345678');
@@ -84,5 +84,5 @@ describe('Crie uma página de editar usuário.', () => {
     clickButton('[data-testid="minha-conta"]');
     clearFieldsUser();
     registerUser(randomEmail, '12345678', '12345678', randomName, randomLast);
-  }) 
-}); 
+  })
+});

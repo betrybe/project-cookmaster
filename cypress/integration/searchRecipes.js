@@ -30,8 +30,7 @@ describe('Cria uma página de buscar de receitas.', () => {
   })
 
   beforeEach(() => {
-    cy.visit('http://localhost:3000/');
-    login(Cypress.env('login'), Cypress.env('password'));
+    accessHomeAndLogin();
   })
 
   it('Verificar se o botão "Buscar Receitas" redireciona para a página das minhas receitas', () => {
@@ -53,4 +52,4 @@ describe('Cria uma página de buscar de receitas.', () => {
     verifyNotContainsText('Receita de que não existe');
   })
 });
-    
+  

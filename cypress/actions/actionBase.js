@@ -38,6 +38,11 @@ export function insertText(element, text) {
   cy.get(element).type(text);
 }
 
+export function accessHomeAndLogin(){
+  cy.visit('http://localhost:3000/');
+  login(Cypress.env('login'), Cypress.env('password'));
+}
+
 export function login(email, password) {
   cy.get('[data-testid="login"]').click();
   cy.get('[data-testid="email"]').type(email);
@@ -103,7 +108,7 @@ export function insertUsers(){
                          ('bruno.batista@gmail.com', '12345678', 'bruno', 'batista'),
                          ('vanessa.morato@gmail.com', '12345678', 'vanessa', 'morato'),
                          ('carolina.silva@gmail.com', '12345678', 'carolina', 'silva');`
- return insertUsers;
+  return insertUsers;
 }
 
 export function insertRecipes(){

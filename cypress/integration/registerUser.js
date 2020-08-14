@@ -12,7 +12,7 @@ import {
 import { name, internet } from 'faker';
 
 describe('Crie uma página de cadastro de usuários', () => {
-  const randomName = name.firstName(); 
+  const randomName = name.firstName();
   const randomEmail = internet.email();
   const randomLast = name.lastName();
 

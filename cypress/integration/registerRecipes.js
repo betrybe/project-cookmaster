@@ -31,8 +31,7 @@ describe('Crie uma página de cadastro de receitas.', () => {
   })
 
   beforeEach(() => {
-    cy.visit('http://localhost:3000/');
-    login(Cypress.env('login'), Cypress.env('password'));
+    accessHomeAndLogin();
   })
 
   it('Verificar se o botão "Nova Receita" direciona para página de cadastrar receitas', () => {

@@ -60,14 +60,14 @@ describe('Crie uma tela para visualizar uma receita específica.', () => {
     verifyContainsText('leite');
     verifyContainsText('30 minutos no forno');
   })
- 
-  it('Verificar se o botão "Editar Receita" leva para página de edição de receita', () => { 
+
+  it('Verificar se o botão "Editar Receita" leva para página de edição de receita', () => {
     login(Cypress.env('login'), Cypress.env('password'));
     clickLinkOrText('Ver mais');
     clickButton('[data-testid="editar-receita"]');
     verifyContainsUrl('/edit');
   })
- 
+
   it('Verificar se o botão "Excluir Receita" leva para página de exclusão de receita', () => {
     login(Cypress.env('login'), Cypress.env('password'));
     clickLinkOrText('Ver mais');

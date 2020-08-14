@@ -30,7 +30,7 @@ describe('Crie uma página de "Minhas receitas".', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000/');
   })
- 
+
   it('Validar se o botão minhas receitas está redirecionando para página das minhas receitas', () => {
     login(Cypress.env('login'), Cypress.env('password'));
     clickButton('[data-testid="minhas-receitas"]');
@@ -47,4 +47,4 @@ describe('Crie uma página de "Minhas receitas".', () => {
     cy.visit('http://localhost:3000/me/recipes');
     verifyContainsUrl('/login');
   })
-}); 
+});
