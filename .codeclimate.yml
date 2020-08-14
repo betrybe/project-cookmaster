@@ -17,7 +17,7 @@ checks:
       threshold: 20
   method-lines:
     config:
-      threshold: 45
+      threshold: 25
   nested-control-flow:
     config:
       threshold: 4
@@ -30,12 +30,9 @@ checks:
     config:
       threshold: # language-specific defaults. an override will affect all languages.
 exclude_patterns:
-  - "**/*.test.js"
-  - "src/serviceWorker.js"
-  - "src/index.css"
-  - "src/App.css"
   - "**/libs/*.css"
   - "**/libs/*.js"
+  - "**/*.{gif,png,jpeg,jpg}"
   - "node_modules/"
 plugins:
   csslint:
@@ -46,13 +43,11 @@ plugins:
       fallback-colors:
         enabled: false
       box-model:
-          enabled: false
+        enabled: false
+  editorconfig:
+    enabled: true
   eslint:
     enabled: true
-    config:
-      extensions:
-        - .js
-        - .jsx
   fixme:
     enabled: true
   nodesecurity:
