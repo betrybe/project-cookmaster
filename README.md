@@ -146,6 +146,16 @@ Isso fará com que abra o terminal do mysql depois basta executar o comando:
 
 Assim já irá criar o banco e alguns inserts.
 
+Haverá um arquivo no seguinte caminho `sd-0x-cookmaster/cypress/plugins/index.js`, Neste arquivo na linha 17.
+
+Haverá a seguinte comando:
+
+`const connection = my.createConnection({host: process.env.HOSTNAME, user: process.env.MYSQL_USER, password: process.env.MYSQL_PASSWORD});`
+
+Você irá precisar configurar as variáveis globais do myqsl, você pode usar esse [Variáveis com nodeJs](https://blog.rocketseat.com.br/variaveis-ambiente-nodejs/) como exemplo, outra opcão, é você mudar manualmente como esse exemplo:
+`const connection = my.createConnection({host: '127.0.0.1, user: 'root', password: '12345678'});`
+
+Fica da sua escolha como inserir esses valores.
 
 #### Funcionalidades de visualização
 
