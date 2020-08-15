@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS cookmaster;
 CREATE DATABASE IF NOT EXISTS cookmaster;
 
 USE cookmaster;
@@ -21,7 +22,7 @@ CREATE TABLE recipes (
 );
 
 INSERT INTO users (email, password, first_name, last_name)
-VALUES ('bruno.batista@gmail.com', '12345678', 'bruno', 'batista'),
+VALUES ('bruno.batistaaaaa@gmail.com', '12345678', 'bruno', 'batista'),
 ('vanessa.morato@gmail.com', '12345678', 'vanessa', 'morato'),
 ('carolina.silva@gmail.com', '12345678', 'carolina', 'silva');
 

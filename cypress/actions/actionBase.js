@@ -123,6 +123,7 @@ export function insertRecipes(){
 }
 
 export function createAndInsertsDataBase() {
+  cy.task('queryDb', 'DROP DATABASE IF EXISTS cookmaster;');
   cy.task('queryDb', createDataBase());
   cy.task('queryDb', 'USE cookmaster;');
   cy.task('queryDb', createTableUsers());
