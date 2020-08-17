@@ -6,7 +6,7 @@ import {
   clearFieldsUser,
   getValueInput,
   createAndInsertsDataBase,
-  dropAndTruncadeDataBase,
+  dropAndTruncateDataBase,
 } from '../actions/actionBase';
 
 import { name, internet } from 'faker';
@@ -21,7 +21,7 @@ describe('Crie uma página de editar usuário.', () => {
   })
 
   after(() => {
-    dropAndTruncadeDataBase();
+    dropAndTruncateDataBase();
   })
 
   beforeEach(() => {

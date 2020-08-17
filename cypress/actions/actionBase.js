@@ -132,7 +132,7 @@ export function createAndInsertsDataBase() {
   cy.task('queryDb', insertRecipes());
 }
 
-export function dropAndTruncadeDataBase(){
+export function dropAndTruncateDataBase(){
   cy.task('queryDb', 'DELETE FROM cookmaster.recipes;');
   cy.task('queryDb', 'SET FOREIGN_KEY_CHECKS = 0;');
   cy.task('queryDb', 'DELETE FROM cookmaster.users;');

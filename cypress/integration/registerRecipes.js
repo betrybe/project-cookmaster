@@ -6,7 +6,7 @@ import {
   verifyNotContainsText,
   clickLinkOrText,
   createAndInsertsDataBase,
-  dropAndTruncadeDataBase,
+  dropAndTruncateDataBase,
   accessHomeAndLogin,
 } from '../actions/actionBase';
 
@@ -16,7 +16,7 @@ describe('Crie uma página de cadastro de receitas.', () => {
   })
 
   after(() => {
-    dropAndTruncadeDataBase();
+    dropAndTruncateDataBase();
   })
 
   beforeEach(() => {

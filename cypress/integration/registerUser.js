@@ -3,7 +3,7 @@ import {
   clickButton,
   verifyContainsText,
   createAndInsertsDataBase,
-  dropAndTruncadeDataBase,
+  dropAndTruncateDataBase,
 } from '../actions/actionBase';
 
 import { name, internet } from 'faker';
@@ -18,7 +18,7 @@ describe('Crie uma página de cadastro de usuários', () => {
   })
 
   after(() => {
-    dropAndTruncadeDataBase();
+    dropAndTruncateDataBase();
   })
 
   beforeEach(() => {

@@ -7,7 +7,7 @@ import {
   verifyElementVisible,
   login,
   createAndInsertsDataBase,
-  dropAndTruncadeDataBase,
+  dropAndTruncateDataBase,
 } from '../actions/actionBase';
 
 describe('Crie uma tela para visualizar uma receita específica.', () => {
@@ -16,7 +16,7 @@ describe('Crie uma tela para visualizar uma receita específica.', () => {
   })
 
   after(() => {
-    dropAndTruncadeDataBase();
+    dropAndTruncateDataBase();
   })
 
   beforeEach(() => {

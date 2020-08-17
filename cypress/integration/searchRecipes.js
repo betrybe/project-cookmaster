@@ -6,7 +6,7 @@ import {
   verifyNotContainsText,
   accessHomeAndLogin,
   createAndInsertsDataBase,
-  dropAndTruncadeDataBase,
+  dropAndTruncateDataBase,
 } from '../actions/actionBase';
 
 describe('Cria uma página de buscar de receitas.', () => {
@@ -15,7 +15,7 @@ describe('Cria uma página de buscar de receitas.', () => {
   })
 
   after(() => {
-    dropAndTruncadeDataBase();
+    dropAndTruncateDataBase();
   })
 
   beforeEach(() => {

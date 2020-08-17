@@ -6,7 +6,7 @@ import {
   clickLastElement,
   createRecipe,
   createAndInsertsDataBase,
-  dropAndTruncadeDataBase,
+  dropAndTruncateDataBase,
   accessHomeAndLogin,
 } from '../actions/actionBase';
 
@@ -16,7 +16,7 @@ describe('Crie uma página de exclusão de uma receita.', () => {
   })
 
   after(() => {
-    dropAndTruncadeDataBase();
+    dropAndTruncateDataBase();
   })
 
   beforeEach(() => {

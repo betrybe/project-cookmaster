@@ -4,7 +4,7 @@ import {
   clickButton,
   verifyContainsUrl,
   createAndInsertsDataBase,
-  dropAndTruncadeDataBase,
+  dropAndTruncateDataBase,
 } from '../actions/actionBase';
 
 describe('Crie uma página de Minhas receitas.', () => {
@@ -13,7 +13,7 @@ describe('Crie uma página de Minhas receitas.', () => {
   })
 
   after(() => {
-    dropAndTruncadeDataBase();
+    dropAndTruncateDataBase();
   })
 
   beforeEach(() => {

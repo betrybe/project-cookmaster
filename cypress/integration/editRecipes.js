@@ -6,7 +6,7 @@ import {
   createRecipe,
   clickLastElement,
   createAndInsertsDataBase,
-  dropAndTruncadeDataBase,
+  dropAndTruncateDataBase,
   accessHomeAndLogin,
 } from '../actions/actionBase';
 
@@ -22,7 +22,7 @@ describe('Crie uma página de edição de receitas.', () => {
   })
 
   after(() => {
-    dropAndTruncadeDataBase();
+    dropAndTruncateDataBase();
   })
 
   beforeEach(() => {
