@@ -126,7 +126,7 @@ Não estamos avaliando o **estilo** da página. Cores, tamanhos de texto e afins
 
 ## ⚠️ Leia-os atentamente e siga à risca o que for pedido. ⚠️
 
-Iremos apenas pedir que adicone `data-testid` em alguns elemetos, e algumas tags e textos especificos, então siga a risca o que iremos pedir nos requisitos, para que a automação funcione.
+Vamos pedir que você adicone `data-testid` em alguns elemetos,além de algumas tags e textos especificos, Siga à risca o que iremos pedir nos requisitos, para que o corretor automatizado possa avaliar o seu projeto corretamente.
 
 O não cumprimento de um requisito, total ou parcialmente, impactará em sua avaliação.
 
@@ -136,15 +136,15 @@ O não cumprimento de um requisito, total ou parcialmente, impactará em sua ava
 
 Haverá um arquivo chamado `cookmaster.sql` onde já contém a criação de do banco e alguns inserts.
 
-Para rodar o arquivo basta rodar o comando
+Para rodar o arquivo basta rodar o comando:
 
 `mysql -u root -p`
 
-Isso fará com que abra o terminal do mysql depois basta executar o comando:
+Isso fará com que abra o terminal do MySQL se abra. Depois, basta executar o comando:
 
 `source pasta_do_projeto/cookmaster.sql`
 
-Assim já irá criar o banco e alguns inserts.
+Assim já irá criar o banco e terá alguns dados inseridos. **É essencial seguir esses passos!**
 
 Haverá um arquivo no seguinte caminho `sd-0x-cookmaster/cypress/plugins/index.js`, Neste arquivo na linha 17.
 
@@ -175,33 +175,33 @@ Um botão "Nova receita" deve ser exibido **apenas quando houver um usuário log
 
 ### Tela da home:
 
-O página deverá ter o texto 'Cookmaster'.
+- A página deverá ter o texto 'Cookmaster'.
 
-O página deverá ter o texto 'Receitas'.
+- A página deverá ter o texto 'Receitas'.
 
-O link 'Ver mais' deverá estar num elemento `<a>` com o texto `Ver mais`. Algo na linha de: `<a href="Link">Ver mais</a>`
+- O link 'Ver mais' deverá estar num elemento `<a>` com o texto `Ver mais`. Algo na linha de: `<a href="Link">Ver mais</a>`
 
-O botão 'Nova Receita' deverá conter o `data-testid="nova-receita"`
+- O botão 'Nova Receita' deverá conter o `data-testid="nova-receita"`
 (Esse botão deverá ficar visível na tela apenas estando logado.)
 
-O botão 'Buscar Receita' deverá conter o `data-testid="buscar-receita"`
+- O botão 'Buscar Receita' deverá conter o `data-testid="buscar-receita"`
 (Esse botão deverá ficar visível na tela estando logado ou não)
 
-O 'Login' deverá conter a tag `data-testid="login"`
+- O 'Login' deverá conter a tag `data-testid="login"`
 
-O 'Logout' deverá conter a tag `data-testid="logout"`
+- O 'Logout' deverá conter a tag `data-testid="logout"`
 
 ![Tela Home](./public/home_nao_autenticado.png)
 
 ### Tela de login:
 
-A página deve ser acessível através da rota principal (`/login`). E deverá ser acessada pelo 'Login' da página Home.
+- A página deve ser acessível através da rota principal (`/login`). E deverá ser acessada pelo 'Login' da página Home.
 
-O campo 'Email' deverá conter a tag `data-testid="email"`
+- O campo 'Email' deverá conter a tag `data-testid="email"`
 
-O campo 'Senha' deverá conter a tag `data-testid="senha"`
+- O campo 'Senha' deverá conter a tag `data-testid="senha"`
 
-O botão 'Login' deverá conter a tag `data-testid="entrar"`
+- O botão 'Login' deverá conter a tag `data-testid="entrar"`
 
 ![Tela Home](./public/login.png)
 
@@ -227,19 +227,19 @@ Adicione na tela de login o botão ou link 'Cadastre-se' que deverá conter a ta
 
 ### Tela de Cadastro:
 
-O campo 'Email' deverá conter a tag `data-testid="email"`
+- O campo 'Email' deverá conter a tag `data-testid="email"`
 
-O campo 'Senha' deverá conter a tag `data-testid="senha"`
+- O campo 'Senha' deverá conter a tag `data-testid="senha"`
 
-O campo 'Confirmar Senha' deverá conter a tag `data-testid="confirmar-senha"`
+- O campo 'Confirmar Senha' deverá conter a tag `data-testid="confirmar-senha"`
 
-O campo 'Nome' deverá conter a tag `data-testid="nome"`
+- O campo 'Nome' deverá conter a tag `data-testid="nome"`
 
-O campo 'Sobrenome' deverá conter a tag `data-testid="sobrenome"`
+- O campo 'Sobrenome' deverá conter a tag `data-testid="sobrenome"`
 
-botao 'Cadastar-se' deverá conter a tag `data-testid="cadastrar"`
+- O botão 'Cadastar-se' deverá conter a tag `data-testid="cadastrar"`
 
-botao 'Login' deverá conter a tag `data-testid="login"`
+- O botão 'Login' deverá conter a tag `data-testid="login"`
 
 ![Tela Cadastro de usuário](./public/cadastro.png)
 
@@ -285,9 +285,9 @@ Esta página deve exibir o título, os ingredientes, e a forma de preparo da rec
 
 ### Tela com usuário logado:
 
-O botão 'Editar Receita' deverá conter a tag `data-testid="editar-receita"`
+- O botão 'Editar Receita' deverá conter a tag `data-testid="editar-receita"`
 
-O botão 'Excluir Receita' deverá conter a tag `data-testid="excluir-receita"`
+- O botão 'Excluir Receita' deverá conter a tag `data-testid="excluir-receita"`
 
 ![Tela Receita especifica](./public/receita_especifica_autenticada.png)
 
@@ -323,9 +323,9 @@ O botão 'Buscar Receitas' ficará sempre visível an tela home estando logado o
 
 ### Tela de Buscar receitas:
 
-O campo input deverá conter a tag `data-testid="receita"`
+- O campo input deverá conter a tag `data-testid="receita"`
 
-O botão 'Buscar' deverá conter a tag `data-testid="buscar"`
+- O botão 'Buscar' deverá conter a tag `data-testid="buscar"`
 
 ![Tela Pesquisa Receita](./public/busca_receita.png)
 
@@ -360,15 +360,15 @@ Na Tela inicial('/') acidione o botão 'Nova Receita' deverá conter a tag `data
 
 ### Tela de Cadastro de Receita:
 
-O campo input 'Nome da Receita' deverá conter a tag `data-testid="nome-receita"`
+- O campo input 'Nome da Receita' deverá conter a tag `data-testid="nome-receita"`
 
-O campo input 'Ingredientes' deverá conter a tag `data-testid="ingredientes"`
+- O campo input 'Ingredientes' deverá conter a tag `data-testid="ingredientes"`
 
-O botao 'Adicionar Ingrediente' deverá conter a tag `data-testid="adicionar-ingrediente"`
+- O botão 'Adicionar Ingrediente' deverá conter a tag `data-testid="adicionar-ingrediente"`
 
-O campo input 'Modo de Preparo' deverá conter a tag `data-testid="modo-de-preparo"`
+- O campo input 'Modo de Preparo' deverá conter a tag `data-testid="modo-de-preparo"`
 
-O botao 'Salvar Receita' deverá conter a tag `data-testid="postar-receita"`
+- O botão 'Salvar Receita' deverá conter a tag `data-testid="postar-receita"`
 
 ![Tela cadastro de Receita](./public/cadastro_receita.png)
 
@@ -396,15 +396,15 @@ A validação dos campos deve ser realizada no backend.
 
 ### Tela de Editar de Receita:
 
-O campo input 'Nome da Receita' deverá conter a tag `data-testid="nome-receita"`
+- O campo input 'Nome da Receita' deverá conter a tag `data-testid="nome-receita"`
 
-O campo input 'Ingredientes' deverá conter a tag `data-testid="ingredientes"`
+- O campo input 'Ingredientes' deverá conter a tag `data-testid="ingredientes"`
 
-O botao 'Adicionar Ingrediente' deverá conter a tag `data-testid="adicionar-ingrediente"`
+- O botão 'Adicionar Ingrediente' deverá conter a tag `data-testid="adicionar-ingrediente"`
 
-O campo input 'Modo de Preparo' deverá conter a tag `data-testid="modo-de-preparo"`
+- O campo input 'Modo de Preparo' deverá conter a tag `data-testid="modo-de-preparo"`
 
-O botao 'Salvar Receita' deverá conter a tag `data-testid="postar-receita"`
+- O botão 'Salvar Receita' deverá conter a tag `data-testid="postar-receita"`
 
 ![Tela editar Receita](./public/editar_receita.png)
 
@@ -428,9 +428,11 @@ Caso a receita seja excluída com sucesso, a pessoa deve ser redirecionada à p�
 
 ### Tela de Excluir Receita:
 
-O campo input 'Senha' deverá conter a tag `data-testid="senha"`
-O botão 'Confirmar' deverá conter a tag `data-testid="confirmar"`
-O botão 'Cancelar' deverá conter a tag `data-testid="cancelar"`
+- O campo input 'Senha' deverá conter a tag `data-testid="senha"`
+
+- O botão 'Confirmar' deverá conter a tag `data-testid="confirmar"`
+
+- O botão 'Cancelar' deverá conter a tag `data-testid="cancelar"`
 
 ![Tela Excluir Receita](./public/excluir_receita.png)
 
@@ -483,6 +485,18 @@ O ID da pessoa não deve poder ser editado. Nem através da tela, nem através d
 Na Tela inicial('/') acidione o botão 'Minha Conta' deverá conter a tag `data-testid="minha-conta"`, e ao clicar deverá redirecionar para a página de 'Editar Usuário'. E só poderá ser visualizado caso esteja logado.
 
 ### Tela de Editar Usuario:
+
+- O campo 'Email' deverá conter a tag `data-testid="email"`
+
+- O campo 'Senha' deverá conter a tag `data-testid="senha"`
+
+- O campo 'Confirmar Senha' deverá conter a tag `data-testid="confirmar-senha"`
+
+- O campo 'Nome' deverá conter a tag `data-testid="nome"`
+
+- O campo 'Sobrenome' deverá conter a tag `data-testid="sobrenome"`
+
+- O botão 'Cadastar-se' deverá conter a tag `data-testid="cadastrar"`
 
 ![Tela Editar Usuário](./public/editar_usuario.png)
 
