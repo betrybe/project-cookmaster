@@ -28,7 +28,7 @@ jobs:
         uses: betrybe/cypress-evaluator-action@v4
         if: steps.wait-for-build.outputs.conclusion == 'success'
         with:
-          repository-test-name: 'betrybe/project-cookmaster-tests'
+          repository-test-name: 'betrybe/sd-0x-cookmaster-tests'
           repository-test-branch: 'master'
           npm-start: true
         env:
