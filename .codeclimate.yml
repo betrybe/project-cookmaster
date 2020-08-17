@@ -1,10 +1,8 @@
-version: '2' # required to adjust maintainability checks
-exclude_patterns:
-  - '**/*.test.js'
+version: "2"         # required to adjust maintainability checks
 checks:
   argument-count:
     config:
-      threshold: 6
+      threshold: 5
   complex-logic:
     config:
       threshold: 4
@@ -27,12 +25,25 @@ checks:
     config:
       threshold: 4
   similar-code:
-    config:
-      threshold: # language-specific defaults. an override will affect all languages.
+    enabled: false
   identical-code:
     config:
       threshold: # language-specific defaults. an override will affect all languages.
+exclude_patterns:
+  - "**/libs/*.css"
+  - "**/libs/*.js"
+  - "**/*.{gif,png,jpeg,jpg}"
+  - "node_modules/"
 plugins:
+  csslint:
+    enabled: true
+    checks:
+      box-sizing:
+        enabled: false
+      fallback-colors:
+        enabled: false
+      box-model:
+        enabled: false
   editorconfig:
     enabled: true
   eslint:
@@ -45,3 +56,4 @@ plugins:
     enabled: true
   stylelint:
     enabled: true
+    
