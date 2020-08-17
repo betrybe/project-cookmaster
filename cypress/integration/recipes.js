@@ -23,18 +23,18 @@ describe('Crie uma tela para visualizar uma receita específica.', () => {
     cy.visit('http://localhost:3000/');
   })
 
-  it('Verificar se consigo acessar uma receita específica', () => {
+  it('Verificar se consigo acessar uma receita especifica', () => {
     clickLinkOrText('Ver mais');
     verifyContainsText('Receita de Bolo');
   })
 
-  it('Verificar se consigo acessar uma receita específica depois que faço login', () => {
+  it('Verificar se consigo acessar uma receita especifica depois que faço login', () => {
     login(Cypress.env('login'), Cypress.env('password'));
     clickLinkOrText('Ver mais');
     verifyContainsText('Receita de Bolo');
   })
 
-  it('Quando estou logado verfico se na página de uma receita específica existe os botões "Editar Receita" e "Excluir Receita"', () => {
+  it('Quando a pessoa está logada, verificar se na página de uma receita específica existem os botões "Editar Receita" e "Excluir Receita"', () => {
     login(Cypress.env('login'), Cypress.env('password'));
     clickLinkOrText('Ver mais');
     verifyElementVisible('[data-testid="editar-receita"]');

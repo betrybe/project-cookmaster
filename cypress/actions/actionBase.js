@@ -66,6 +66,15 @@ export function registerUser(email, password, confirmPassword, name, lastName) {
   cy.get('[data-testid="cadastrar"]').click();
 }
 
+export function editUser(email, password, confirmPassword, name, lastName) {
+  cy.get('[data-testid="email"]').type(email);
+  cy.get('[data-testid="senha"]').type(password);
+  cy.get('[data-testid="confirmar-senha"]').type(confirmPassword);
+  cy.get('[data-testid="nome"]').type(name);
+  cy.get('[data-testid="sobrenome"]').type(lastName);
+  cy.get('[data-testid="salvar"]').click();
+}
+
 export function createRecipe() {
   clickButton('[data-testid="nova-receita"]');
   insertText('[data-testid="nome-receita"]', 'Receita para excluir');

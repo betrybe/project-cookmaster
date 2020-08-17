@@ -108,7 +108,7 @@ O código para cadastro de usuários deve ser criado por você utilizando os con
 
 - Para esses conteúdos repetitivos, você pode utilizar `includes` do EJS.
 
-- A [documentação do EJS](https://ejs.co/#docs) (dê um Ctrl + F e pesquise por "includes") fala brevemente sobre o use de includes nas suas views.
+- A [documentação do EJS](https://ejs.co/#docs) (dê um `Ctrl + F` e pesquise por "includes") fala brevemente sobre o use de includes nas suas views.
 
 ### Data de Entrega
 
@@ -126,7 +126,7 @@ Não estamos avaliando o **estilo** da página. Cores, tamanhos de texto e afins
 
 ## ⚠️ Leia-os atentamente e siga à risca o que for pedido. ⚠️
 
-Vamos pedir que você adicone `data-testid` em alguns elemetos,além de algumas tags e textos especificos, Siga à risca o que iremos pedir nos requisitos, para que o corretor automatizado possa avaliar o seu projeto corretamente.
+Vamos pedir que você adicione `data-testid` em alguns elementos, além de algumas tags e textos especificos, Siga à risca o que iremos pedir nos requisitos, para que o corretor automatizado possa avaliar o seu projeto corretamente.
 
 O não cumprimento de um requisito, total ou parcialmente, impactará em sua avaliação.
 
@@ -146,14 +146,13 @@ Isso fará com que abra o terminal do MySQL se abra. Depois, basta executar o co
 
 Assim já irá criar o banco e terá alguns dados inseridos. **É essencial seguir esses passos!**
 
-Haverá um arquivo no seguinte caminho `sd-0x-cookmaster/cypress/plugins/index.js`, Neste arquivo na linha 17.
-
-Haverá a seguinte comando:
+Haverá um arquivo no caminho: `sd-0x-cookmaster/cypress/plugins/index.js`. Neste arquivo, na linha 17, Haverá a seguinte comando:
 
 `const connection = my.createConnection({host: process.env.HOSTNAME, user: process.env.MYSQL_USER, password: process.env.MYSQL_PASSWORD});`
 
-Você irá precisar configurar as variáveis globais do myqsl, você pode usar esse [Variáveis com nodeJs](https://blog.rocketseat.com.br/variaveis-ambiente-nodejs/) como exemplo, outra opcão, é você mudar manualmente como esse exemplo:
-`const connection = my.createConnection({host: '127.0.0.1, user: 'root', password: '12345678'});`
+**Você irá precisar configurar as variáveis globais do MySQL.** Você pode usar esse [Conteúdo de variáveis de ambiente com NodeJS](https://blog.rocketseat.com.br/variaveis-ambiente-nodejs/) como referência. Outra opcão, é você mudá-las manualmente, como neste exemplo:
+
+`const connection = my.createConnection({ host: '127.0.0.1, user: 'root', password: '12345678' });`
 
 Fica da sua escolha como inserir esses valores.
 
@@ -163,7 +162,7 @@ Fica da sua escolha como inserir esses valores.
 
 * Listagem de receitas
 * Tela para visualizar uma receita específica
-* Página de cadastro de usuários
+* Página de cadastro de pessoas usuárias
 
 ### 1 - Crie uma tela de listagem de receitas.
 
@@ -182,44 +181,46 @@ Um botão "Nova receita" deve ser exibido **apenas quando houver um usuário log
 - O link 'Ver mais' deverá estar num elemento `<a>` com o texto `Ver mais`. Algo na linha de: `<a href="Link">Ver mais</a>`
 
 - O botão 'Nova Receita' deverá conter o `data-testid="nova-receita"`
-(Esse botão deverá ficar visível na tela apenas estando logado.)
+(Esse botão deverá ficar visível na tela apenas estando logado).
 
 - O botão 'Buscar Receita' deverá conter o `data-testid="buscar-receita"`
-(Esse botão deverá ficar visível na tela estando logado ou não)
+(Esse botão deverá ficar visível na tela **estando logado ou não**).
 
 - O 'Login' deverá conter a tag `data-testid="login"`
+(Esse elemento deverá ficar visível na tela apenas **não** estando logado).
 
 - O 'Logout' deverá conter a tag `data-testid="logout"`
+(Esse elemento deverá ficar visível na tela apenas estando logado).
 
 ![Tela Home](./public/home_nao_autenticado.png)
 
 ### Tela de login:
 
-- A página deve ser acessível através da rota principal (`/login`). E deverá ser acessada pelo 'Login' da página Home.
+- A página deve ser acessível através da rota principal (`/login`). Além disso, ela deverá ser acessada pelo 'Login' da página Home.
 
-- O campo 'Email' deverá conter a tag `data-testid="email"`
+- O campo input 'Email' deverá conter a tag `data-testid="email"`
 
-- O campo 'Senha' deverá conter a tag `data-testid="senha"`
+- O campo input 'Senha' deverá conter a tag `data-testid="senha"`
 
 - O botão 'Login' deverá conter a tag `data-testid="entrar"`
 
 ![Tela Home](./public/login.png)
 
-#### As seguintes verificações serão feitas:
+#### Além disso, as seguintes verificações serão feitas:
 
-**[Verificar se estou na home e tem os títulos 'Cookmaster' e 'Receitas']**
+**[Verificar se estou na home e há os títulos 'Cookmaster' e 'Receitas' na tela]**
 
-**[Verificar se não existe o botão 'Nova Receita' quando acesso home sem estar logado]**
+**[Verificar se não existe o botão 'Nova Receita' quando se acessa a home sem estar logado]**
 
-**[Verificar se existe o botão 'Nova Receita' quando estou logado e acessei a home]**
+**[Verificar se existe o botão 'Nova Receita' quando estou logado e acessando a home]**
 
-**[Verificar se existe receita na tela com 'nome da receita', 'nome do usuário' e o link da receita 'Ver mais']**
+**[Verificar se existe, na tela, uma receita previamente cadastrada com 'nome da receita', 'nome do usuário' e o link da receita em 'Ver mais']**
 
 ### 2 - Crie uma página de cadastro de usuários.
 
-Um usuário precisa ter os campos ID, E-mail, Senha, Nome e Sobrenome. Todos os campos são obrigatórios. O ID deve ser gerado automaticamente, não devendo ser preenchido pelo usuário no momento do cadastro.
+Um pessoa usuária precisa ter preenchido os campos `ID`, `E-mail`, `Senha`, `Nome` e `Sobrenome`. Todos os campos são obrigatórios. O `ID` deve ser gerado automaticamente, não devendo ser preenchido pela pessoa usuária no momento do cadastro.
 
-A validação dos campos deve acontecer no backend, e uma mensagem deve ser enviada ao frontend através de uma propriedade passada para o EJS, da mesma forma que acontece com a view `users/login`.
+A validação dos campos deve acontecer no back-end, e uma mensagem deve ser enviada ao front-end através de uma propriedade passada para o EJS, da mesma forma que acontece com a view `users/login`.
 
 **⚠️ Atenção ⚠️**: O sistema de autenticação espera que as funções `findUserByEmail` e `findUserById` retornem um objeto com, pelo menos, os campos `email`, `password` e `id`. Se você alterar o nome desses campos, precisará alterar o código de login.
 
@@ -245,27 +246,27 @@ Adicione na tela de login o botão ou link 'Cadastre-se' que deverá conter a ta
 
 #### As seguintes verificações serão feitas:
 
-**[Criar um usuário com sucesso]**
+**[Cadastro de uma pessoa usuária com sucesso]**
 
-- Ao cadastar o usário deverá aparecer a mensagem "Cadastro efetuado com sucesso!"
+- Ao se cadastrar uma pessoa usuária, deverá aparecer a mensagem "Cadastro efetuado com sucesso!"
 
-**[Validar o campo email]**
+**[Validação o campo "Email"]**
 
-- Ao cadastar um email inválido deverá aparecer a mensagem "O email deve ter o formato email@mail.com"
+- Ao se cadastrar um email inválido deverá aparecer a mensagem "O email deve ter o formato email@mail.com"
 
-**[Validar o campo senha]**
+**[Validação do campo "Senha"]**
 
-- Ao cadastar uma senha inválida deverá aparecer a mensagem "A senha deve ter pelo menos 6 caracteres"
+- Ao se cadastrar uma senha inválida deverá aparecer a mensagem "A senha deve ter pelo menos 6 caracteres"
 
-**[Validar campos confirmar senha]**
+**[Validação do campo "Confirmar Senha"]**
 
-- Ao cadastar um confirmar senha inválida deverá aparecer a mensagem "As senhas tem que ser iguais"
+- Ao se inserir um "confirmar senha" inválido, deverá aparecer a mensagem "As senhas tem que ser iguais"
 
-**[Validar campos nome]**
+**[Validação do campo "Nome"]**
 
-- Ao cadastar um nome inválido deverá aparecer a mensagem "O primeiro nome deve ter, no mínimo, 3 caracteres, sendo eles apenas letras"
+- Ao se cadastrar um nome inválido, deverá aparecer a mensagem "O primeiro nome deve ter, no mínimo, 3 caracteres, sendo eles apenas letras"
 
-**[Validar campos sobrenome]**
+**[Validação do campo "Sobrenome"**
 
 - Ao cadastar um sobrenome inválido deverá aparecer a mensagem "O segundo nome deve ter, no mínimo, 3 caracteres, sendo eles apenas letras"
 
@@ -283,19 +284,19 @@ Esta página deve exibir o título, os ingredientes, e a forma de preparo da rec
 
 ![Tela Receita especifica](./public/receita_especifica.png)
 
-### Tela com usuário logado:
+### Tela com a pessoa usuária logada:
 
 - O botão 'Editar Receita' deverá conter a tag `data-testid="editar-receita"`
 
 - O botão 'Excluir Receita' deverá conter a tag `data-testid="excluir-receita"`
 
-![Tela Receita especifica](./public/receita_especifica_autenticada.png)
+![Tela Receita Especifica](./public/receita_especifica_autenticada.png)
 
 #### As seguintes verificações serão feitas:
 
-**[Verificar se consigo acessar uma receita específica]**
+**[Verificar se consigo acessar uma receita especifica]**
 
-**[Verificar se consigo acessar uma receita específica depois que faço login]**
+**[Verificar se consigo acessar uma receita especifica depois que faço login]**
 
 **[Quando estou logado verfico se na página de uma receita específica existe os botões 'Editar Receita' e 'Excluir Receita']**
 
@@ -305,7 +306,7 @@ Esta página deve exibir o título, os ingredientes, e a forma de preparo da rec
 
 **[Verificar se o botão 'Excluir Receita' leva para página de exclusão de receita]**
 
-**[Verificar se quando não estou logado os botões 'Editar Receita' e 'Excluir Receita' não podem estar visíveis na tela]**
+**[Quando a pessoa está logada, verificar se na página de uma receita específica existem os botões 'Editar Receita' e 'Excluir Receita']**
 
 ### 4 - Cria uma página de buscar de receitas.
 
@@ -313,13 +314,13 @@ A página deve estar acessível através do endpoint `/recipes/search`.
 
 Um input do tipo texto deve ser exibido juntamente com um botão "Buscar". O conteúdo do input deve ser enviado para o endpoint `GET /recipes/search` através do parâmetro `q` na query string.
 
-No backend, o valor do input de texto estará acessível através da propriedade `q` do objeto `req.query`. Caso nada seja informado para pesquisa, a view deve ser renderizada apenas com o campo de pesquisa. Caso um valor seja informado, uma lista semelhante à tela de listar receitas deve ser exibida, contendo o título, nome da pessoa que cadastrou, e um link para cada receita.
+No back-end, o valor do input de texto deverá estar acessível através da propriedade `q` do objeto `req.query`. Caso nada seja informado para pesquisa, a view deverá ser renderizada apenas com o campo de pesquisa. Caso um valor seja informado, uma lista semelhante à tela de listar receitas deve ser exibida, contendo o título, nome da pessoa que cadastrou, e um link para cada receita.
 
 Para realizar a pesquisa, o controller de receitas deve solicitar ao model que pesquise por receitas **contendo em seu nome** o valor digitado no input de pesquisa.
 
-Na Tela inicial('/') acidione o botão 'Buscar Receitas' deverá conter a tag `data-testid="buscar-receita"`, e ao clicar deverá redirecionar para a página de 'Buscar Receitas'.
+Na Tela inicial('/'), acidione o botão 'Buscar Receitas', que deverá conter a tag `data-testid="buscar-receita"` e, ao clicar-se nela, deverá se redirecionar para a página de 'Buscar Receitas'.
 
-O botão 'Buscar Receitas' ficará sempre visível an tela home estando logado ou não.
+O botão 'Buscar Receitas' ficará sempre visível na tela home, estando a pessoa usuária logada ou não.
 
 ### Tela de Buscar receitas:
 
@@ -354,7 +355,7 @@ A página deve ser acessível através do endpoint `/recipes/new`, e o formulár
 
 A receita deve ter os campos ID, Nome, Ingredientes, Modo de preparo e Autor. Sinta-se à vontade para modelar o banco da forma que achar melhor. O ID deve ser gerado automaticamente, não devendo ser preenchido no formulário de cadastro de receita.
 
-O campo dos ingredientes terá que ser um campo input onde pode adicionar varios ingredientes e tambem poderá exlcuir ingredientes. Sendo apresentado em uma lista com um botão 'Excluir Ingrediente' para cada ingrediente.
+O campo dos ingredientes terá que ser um campo input onde se pode adicionar vários ingredientes e também se poderá excluir ingredientes, sendo apresentada uma lista com um botão 'Excluir Ingrediente' para cada ingrediente.
 
 Na Tela inicial('/') acidione o botão 'Nova Receita' deverá conter a tag `data-testid="nova-receita"`, e ao clicar deverá redirecionar para a página de 'Cadastar Receita'. E só poderá ser visualizado caso esteja logado.
 
@@ -438,11 +439,11 @@ Caso a receita seja excluída com sucesso, a pessoa deve ser redirecionada à p�
 
 #### As seguintes verificações serão feitas:
 
-**[Tentar excluir uma receita passando a senha errada e verificar a mensagem de erro]**
+**[Tentar excluir uma receita passando a senha errada e validar a mensagem de erro]**
 
 Ao inserir a senha errada deverá mostrar a mensagem 'Senha Incorreta.'
 
-**[Excluir receita com sucesso e verificar se foi redirecionada à página de listagem de receitas]**
+**[Excluir receita com sucesso e verificar se foi houve redirecionamento à página de listagem de receitas]**
 
 ### 8 - Crie uma página de "Minhas receitas"
 
@@ -454,19 +455,19 @@ Caso uma pessoa que não está logada acesse essa página, ela deve ser redireci
 
 > Lembrete: o ID do usuário logado está disponível em `req.user.id`.
 
-Na Tela inicial('/') acidione o botão 'Minhas Receitas' deverá conter a tag `data-testid="minhas-receitas"`, e ao clicar deverá redirecionar para a página de 'Minhas Receitas'. E só poderá ser visualizado caso esteja logado.
+Na Tela inicial('/'), acidione o botão 'Minhas Receitas', que deverá conter a tag `data-testid="minhas-receitas"` e, ao clicar-se nele, deverá redirecionar para a página de 'Minhas Receitas'. Ele só poderá ser visualizado caso se esteja logado.
 
 ### Tela de Minhas Receitas:
 
-![Tela minhas Receita](./public/minhas_receitas.png)
+![Tela 'Minhas Receita'](./public/minhas_receitas.png)
 
 #### As seguintes verificações serão feitas:
 
-**[Validar se o botão minhas receitas está redirecionando para página das minhas receitas]**
+**[Validar se o botão 'Minhas Receitas' está redirecionando para página das minhas receitas]**
 
-**[Validar se na página está listando as minhas receitas minhas receitas]**
+**[Validar se a página 'Minhas Receitas' está listando as receitas da pessoa usuária]**
 
-**[Validar se quando o usuário não está logado tentar acessar a url das minhas receitas seja redirecionado para a tela de login]**
+**[Validar se, quando o usuário não está logado, tentar acessar a url das minhas receitas leva a um redirecionamento para a tela de login]**
 
 ## Bônus
 
@@ -482,35 +483,35 @@ Caso uma pessoa não logada tente acessar a página, ela deve ser redirecionada 
 
 O ID da pessoa não deve poder ser editado. Nem através da tela, nem através de uma request realizada pelo Postman. Para isso, garanta que seu model não envia esse campo para o banco de dados.
 
-Na Tela inicial('/') acidione o botão 'Minha Conta' deverá conter a tag `data-testid="minha-conta"`, e ao clicar deverá redirecionar para a página de 'Editar Usuário'. E só poderá ser visualizado caso esteja logado.
+Na Tela inicial('/'), acidione o botão 'Minha Conta', que deverá conter a tag `data-testid="minha-conta"` e, ao clicar-se nele, deverá redirecionar para a página de 'Editar Usuário'. Ele só poderá ser visualizado caso se esteja logado.
 
 ### Tela de Editar Usuario:
 
-- O campo 'Email' deverá conter a tag `data-testid="email"`
+- O campo input 'Email' deverá conter a tag `data-testid="email"`
 
-- O campo 'Senha' deverá conter a tag `data-testid="senha"`
+- O campo input 'Senha' deverá conter a tag `data-testid="senha"`
 
-- O campo 'Confirmar Senha' deverá conter a tag `data-testid="confirmar-senha"`
+- O campo input 'Confirmar Senha' deverá conter a tag `data-testid="confirmar-senha"`
 
-- O campo 'Nome' deverá conter a tag `data-testid="nome"`
+- O campo input 'Nome' deverá conter a tag `data-testid="nome"`
 
-- O campo 'Sobrenome' deverá conter a tag `data-testid="sobrenome"`
+- O campo input 'Sobrenome' deverá conter a tag `data-testid="sobrenome"`
 
-- O botão 'Cadastar-se' deverá conter a tag `data-testid="cadastrar"`
+- O botão 'Salvar' deverá conter a tag `data-testid="salvar"`
 
 ![Tela Editar Usuário](./public/editar_usuario.png)
 
-#### As seguintes verificações serão feitas:
+#### Além disso,as seguintes verificações serão feitas:
 
-**[Verificar se o botão editar usuário redireciona para tela de editar usuário]**
+**[Verificar se o botão 'Editar Usuário' redireciona para tela de editar usuário]**
 
-**[Validar alterar email]**
+**[Validar que é possível se alterar o email]**
 
-**[Validar alterar nome]**
+**[Validar que é possível se alterar o nome]**
 
-**[Validar alterar sobrenome]**
+**[Validar que é possível se alterar o sobrenome]**
 
-**[Validar alterar senha]**
+**[Validar que é possível se alterar a senha]**
 
 ---
 

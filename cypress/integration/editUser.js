@@ -7,6 +7,7 @@ import {
   getValueInput,
   createAndInsertsDataBase,
   dropAndTruncateDataBase,
+  editUser,
 } from '../actions/actionBase';
 
 import { name, internet } from 'faker';
@@ -32,46 +33,46 @@ describe('Crie uma página de editar usuário.', () => {
     cy.visit('http://localhost:3000/');
   })
 
-  it('Verificar se o botão editar usuário redireciona para tela de editar usuário', () => {
+  it('Verificar se o botão "Editar Usuário" redireciona para tela de editar usuário', () => {
     login(randomEmail, '12345678');
     clickButton('[data-testid="minha-conta"]');
     verifyContainsUrl('/me/edit');
   })
 
-  it('Validar alterar email', () => {
+  it('Validar que é possível se alterar o email', () => {
     login(randomEmail, '12345678');
     clickButton('[data-testid="minha-conta"]');
     clearFieldsUser()
-    registerUser('emailalterado@gmail.com', '12345678', '12345678', randomName, randomLast);
+    editUser('emailalterado@gmail.com', '12345678', '12345678', randomName, randomLast);
     clickButton('[data-testid="minha-conta"]');
     getValueInput('[data-testid="email"]','emailalterado@gmail.com');
   })
 
-  it('Validar alterar nome', () => {
+  it('Validar que é possível se alterar o nome', () => {
     login(randomEmail, '12345678');
     clickButton('[data-testid="minha-conta"]');
     clearFieldsUser();
-    registerUser(randomEmail, '12345678', '12345678', 'ALTERADO', randomLast);
+    editUser(randomEmail, '12345678', '12345678', 'ALTERADO', randomLast);
     clickButton('[data-testid="minha-conta"]');
     getValueInput('[data-testid="nome"]','ALTERADO');
   })
 
-  it('Validar alterar sobrenome.', () => {
+  it('Validar que é possível se alterar o sobrenome', () => {
     login(randomEmail, '12345678');
     clickButton('[data-testid="minha-conta"]');
     clearFieldsUser();
-    registerUser(randomEmail, '12345678', '12345678', randomName, 'ALTERADO');
+    editUser(randomEmail, '12345678', '12345678', randomName, 'ALTERADO');
     clickButton('[data-testid="minha-conta"]');
     getValueInput('[data-testid="sobrenome"]','ALTERADO');
   })
 
-  it('Validar alterar senha', () => {
+  it('Validar que é possível se alterar a senha', () => {
     login(randomEmail, '12345678');
     clickButton('[data-testid="minha-conta"]');
     clearFieldsUser();
-    registerUser(randomEmail, '123456789', '123456789', randomName, randomLast);
+    editUser(randomEmail, '123456789', '123456789', randomName, randomLast);
     clickButton('[data-testid="minha-conta"]');
     clearFieldsUser();
-    registerUser(randomEmail, '12345678', '12345678', randomName, randomLast);
+    editUser(randomEmail, '12345678', '12345678', randomName, randomLast);
   })
 });

@@ -20,19 +20,19 @@ describe('Crie uma página de Minhas receitas.', () => {
     cy.visit('http://localhost:3000/');
   })
 
-  it('Validar se o botão minhas receitas está redirecionando para página das minhas receitas', () => {
+  it('Validar se o botão "Minhas Receitas" está redirecionando para página das minhas receitas', () => {
     login(Cypress.env('login'), Cypress.env('password'));
     clickButton('[data-testid="minhas-receitas"]');
     verifyContainsUrl('/me/recipes');
   })
 
-  it('Validar se na página está listando as minhas receitas minhas receitas', () => {
+  it('Validar se a página "Minhas Receitas" está listando as receitas da pessoa usuária', () => {
     login(Cypress.env('login'), Cypress.env('password'));
     clickButton('[data-testid="minhas-receitas"]');
     verifyContainsText('Receita de Bolo');
   })
 
-  it('Validar se quando o usuário não está logado tentar acessar a url das minhas receitas seja redirecionado para a tela de login', () => {
+  it('Validar se, quando o usuário não está logado, tentar acessar a url das minhas receitas leva a um redirecionamento para a tela de login', () => {
     cy.visit('http://localhost:3000/me/recipes');
     verifyContainsUrl('/login');
   })
