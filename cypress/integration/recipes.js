@@ -10,7 +10,7 @@ import {
   dropAndTruncateDataBase,
 } from '../actions/actionBase';
 
-describe('Crie uma tela para visualizar uma receita específica.', () => {
+describe('3 - Crie uma tela para visualizar uma receita específica.', () => {
   before(() => {
     createAndInsertsDataBase();
   })

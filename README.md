@@ -156,6 +156,13 @@ Haverá um arquivo no caminho: `sd-0x-cookmaster/cypress/plugins/index.js`. Nest
 
 Fica da sua escolha como inserir esses valores.
 
+**Faça o mesmo para os outros dois seguintes arquivos:**
+
+`sd-0x-cookmaster/config/config.js`
+
+`sd-0x-cookmaster/models/connection.js` 
+(esse arquivo você irá criare configurar quando for configurar o banco).
+
 #### Funcionalidades de visualização
 
 > As páginas abaixo podem ser acessadas sem login:
