@@ -12,7 +12,7 @@ import {
 
 import { name } from 'faker';
 
-describe('Crie uma página de edição de receitas.', () => {
+describe('6 - Crie uma página de edição de receitas.', () => {
   const randomName = name.title();
   const randomIngredient = name.firstName();
   const randomPrepare = name.firstName();

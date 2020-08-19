@@ -10,7 +10,7 @@ import {
   accessHomeAndLogin,
 } from '../actions/actionBase';
 
-describe('Crie uma página de exclusão de uma receita.', () => {
+describe('7 - Crie uma página de exclusão de uma receita.', () => {
   before(() => {
     createAndInsertsDataBase();
   })

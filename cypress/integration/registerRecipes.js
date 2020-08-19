@@ -10,7 +10,7 @@ import {
   accessHomeAndLogin,
 } from '../actions/actionBase';
 
-describe('Crie uma página de cadastro de receitas.', () => {
+describe('5 - Crie uma página de cadastro de receitas.', () => {
   before(() => {
     createAndInsertsDataBase();
   })

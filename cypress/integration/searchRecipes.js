@@ -9,7 +9,7 @@ import {
   dropAndTruncateDataBase,
 } from '../actions/actionBase';
 
-describe('Cria uma página de buscar de receitas.', () => {
+describe('4 - Cria uma página de buscar de receitas.', () => {
   before(() => {
     createAndInsertsDataBase();
   })
