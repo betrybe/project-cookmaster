@@ -150,18 +150,59 @@ Haverá um arquivo no caminho: `sd-0x-cookmaster/cypress/plugins/index.js`. Nest
 
 `const connection = my.createConnection({host: process.env.HOSTNAME, user: process.env.MYSQL_USER, password: process.env.MYSQL_PASSWORD});`
 
-**Você irá precisar configurar as variáveis globais do MySQL.** Você pode usar esse [Conteúdo de variáveis de ambiente com NodeJS](https://blog.rocketseat.com.br/variaveis-ambiente-nodejs/) como referência. Outra opcão, é você mudá-las manualmente, como neste exemplo:
-
-`const connection = my.createConnection({ host: '127.0.0.1, user: 'root', password: '12345678' });`
-
-Fica da sua escolha como inserir esses valores.
+**Você irá precisar configurar as variáveis globais do MySQL.** Você pode usar esse [Conteúdo de variáveis de ambiente com NodeJS](https://blog.rocketseat.com.br/variaveis-ambiente-nodejs/) como referência.
 
 **Faça essas configurações também para as variáveis de ambiente usadas nesses arquivos:**
 
 `sd-0x-cookmaster/config/config.js`
 
-`sd-0x-cookmaster/models/connection.js` 
-(esse arquivo você irá criar e configurar quando programar a conexão com banco).
+`module.exports = {
+  "development": {
+    "username": process.env.MYSQL_USER,
+    "password": process.env.MYSQL_PASSWORD,
+    "database": 'cookmaster',
+    "host": process.env.HOSTNAME,
+    "dialect": 'mysql',
+  },
+  "test": {
+    "username": process.env.MYSQL_USER,
+    "password": process.env.MYSQL_PASSWORD,
+    "database": 'cookmaster',
+    "host": process.env.HOSTNAME,
+    "dialect": "mysql",
+  },
+  "production": {
+    "username": process.env.MYSQL_USER,
+    "password": process.env.MYSQL_PASSWORD,
+    "database": 'cookmaster',
+    "host": process.env.HOSTNAME,
+    "dialect": 'mysql',
+  },
+};`
+
+**(Neste arquivo e obrigatório deixar o nome do database como `"database": 'cookmaster'`)**
+
+`sd-0x-cookmaster/models/connection.js`
+
+`const config = {
+  user: process.env.MYSQL_USER,
+  password: process.env.MYSQL_PASSWORD,
+  host: process.env.HOSTNAME,
+  port: 33060,
+  socketPath: '/var/run/mysqld/mysqld.sock',
+};`
+
+(esse arquivo você irá criar e configurar quando programar a conexão com banco, e essencial estar na porta 33060).
+
+**É essencial usar essas 3 variávies nos três arquivos acima:**
+
+Variáveis:
+
+`host: process.env.HOSTNAME`
+`user: process.env.MYSQL_USER`
+`password: process.env.MYSQL_PASSWORD`
+
+**Com elas que iremos conseguir conectar ao banco do avaliador automático**
 
 #### Funcionalidades de visualização
 
@@ -172,6 +213,8 @@ Fica da sua escolha como inserir esses valores.
 * Página de cadastro de pessoas usuárias
 
 ### 1 - Crie uma tela de listagem de receitas.
+
+**Obrigatório o projeto estar rodando na porta 3000, ex: http://localhost:3000/**
 
 A página deve ser acessível através da rota principal (`/`).
 
