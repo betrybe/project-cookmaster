@@ -156,11 +156,12 @@ Haverá um arquivo no caminho: `sd-0x-cookmaster/cypress/plugins/index.js`. Nest
 
 `sd-0x-cookmaster/config/config.js`
 
-`module.exports = {
+```
+module.exports = {
   "development": {
     "username": process.env.MYSQL_USER,
-    "password": process.env.MYSQL_PASSWORD,
-    "database": 'cookmaster',
+    "password": process.env.MYSQL_PASSWORD, 
+    "database": 'cookmaster', 
     "host": process.env.HOSTNAME,
     "dialect": 'mysql',
   },
@@ -178,19 +179,22 @@ Haverá um arquivo no caminho: `sd-0x-cookmaster/cypress/plugins/index.js`. Nest
     "host": process.env.HOSTNAME,
     "dialect": 'mysql',
   },
-};`
+};
+```
 
 **(Neste arquivo e obrigatório deixar o nome do database como `"database": 'cookmaster'`)**
 
 `sd-0x-cookmaster/models/connection.js`
 
-`const config = {
+```
+const config = {
   user: process.env.MYSQL_USER,
   password: process.env.MYSQL_PASSWORD,
   host: process.env.HOSTNAME,
   port: 33060,
   socketPath: '/var/run/mysqld/mysqld.sock',
-};`
+};
+```
 
 (esse arquivo você irá criar e configurar quando programar a conexão com banco, e essencial estar na porta 33060).
 
