@@ -1,23 +1,23 @@
 module.exports = {
   "development": {
-    "username": "root",
-    "password": "12345678",
+    "username": process.env.MYSQL_USER,
+    "password": process.env.MYSQL_PASSWORD,
     "database": "cookmaster",
-    "host": "127.0.0.1",
+    "host": process.env.HOSTNAME,
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": "12345678",
+    "username": process.env.MYSQL_USER,
+    "password": process.env.MYSQL_PASSWORD,
     "database": "cookmaster",
-    "host": "127.0.0.1",
+    "host": process.env.HOSTNAME,
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": "12345678",
+    "username": process.env.MYSQL_USER,
+    "password": process.env.MYSQL_PASSWORD,
     "database": "cookmaster",
-    "host": "127.0.0.1",
+    "host": process.env.HOSTNAME,
     "dialect": "mysql"
   }
 };
