@@ -98,7 +98,8 @@ O código para cadastro de usuários deve ser criado por você utilizando os con
 
 - Quando o atributo `method` de um formulário é definido para `GET`, o navegador utiliza o atributo `name` de cada campo para montar a query string. Isso quer dizer que, se você quiser um atributo chamado `search` na query string, precisa de um input com `name="search"` no seu formulário.
 
-- Toda vez que uma view precisar saber se existe ou não um usuário logado, você pode, no controller, passar o conteúdo de `req.user` para essa view. Depois, na view, basta verificar se esse campo veio preenchido ou não, utilizando algo como `<% if (user) { %> \<\!-- Utiliza os dados do usuário --\> <% } %>`.
+- Toda vez que uma view precisar saber se existe ou não um usuário logado, você pode, no controller, passar o conteúdo de `req.user` para essa view. Depois, na view, basta verificar se esse campo veio 
+ou não, utilizando algo como `<% if (user) { %> \<\!-- Utiliza os dados do usuário --\> <% } %>`.
 
 - O middleware `authMiddleware` recebe um único parâmetro chamado `required`. Quando verdadeiro, esse parâmetro faz com que uma rota só possa ser acessada por pessoas logadas. Em alguns casos, uma página precisa ter acesso aos dados do usuário, caso essa pessoa esteja logada, mas deve continuar podendo ser acessada por pessoas que não estejam autenticadas. Para esse caso, passe `false` no parâmetro required para a função `authMiddleware`. Ex.: `middlewares.auth(false)`.
 
@@ -272,7 +273,7 @@ Um botão "Nova receita" deve ser exibido **apenas quando houver um usuário log
 
 ### 2 - Crie uma página de cadastro de usuários.
 
-Um pessoa usuária precisa ter preenchido os campos `ID`, `E-mail`, `Senha`, `Nome` e `Sobrenome`. Todos os campos são obrigatórios. O `ID` deve ser gerado automaticamente, não devendo ser preenchido pela pessoa usuária no momento do cadastro.
+Um pessoa usuária precisa ter preenchido os campos `E-mail`, `Senha`, `Nome` e `Sobrenome`. Todos os campos são obrigatórios. O `ID` deve ser gerado automaticamente, não devendo ser preenchido pela pessoa usuária no momento do cadastro.
 
 A validação dos campos deve acontecer no back-end, e uma mensagem deve ser enviada ao front-end através de uma propriedade passada para o EJS, da mesma forma que acontece com a view `users/login`.
 
