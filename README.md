@@ -437,13 +437,13 @@ Na Tela inicial('/') acidione o botão 'Nova Receita' deverá conter a tag `data
 
 ### 6 - Crie uma página de edição de receitas.
 
-A página deve ser acessível através do endpoint `/recipes/:id/edit`, e o formulário deve ser enviado para o endpoint `POST /recipes/:id`.
+A página deve ser acessível através do endpoint `/recipes/:id/edit`, formulário deve ser enviado para o endpoint `POST /recipes/:id`.
 
 Ao carregar, a página já deve conter as informações atuais daquela receita. Você pode utilizar o atributo `value` dos inputs no HTML para preencher esses campos.
 
 Apenas a pessoa que criou a receita deve ter permissão para edita-la. Para verificar isso, você pode utilizar a propriedade `id` localizada em `req.user` (que é criada pelo `authMiddleware`) e compará-la ao ID de quem criou a receita. Caso os IDs não sejam idênticos, a pessoa deve ser redirecionada à página de visualizar receita utilizando o método `res.redirect` no controller.
 
-Caso a edição aconteça com sucesso, a pessoa deve ser redirecionada para a página de visualização daquela receita, já com os dados atualizados.
+Caso a edição aconteça com sucesso, a pessoa deve ser redirecionada para a página home `/`.
 
 A validação dos campos deve ser realizada no backend.
 
