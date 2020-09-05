@@ -531,7 +531,7 @@ O link para acessar essa página só deve estar visível para pessoas logadas.
 
 Cada pessoa só deve poder editar o próprio perfil. Para isso, o backend deve extrair o ID do usuário a ser atualizado da propriedade `req.user`, e não do corpo da request. Esse deve ser o ID enviado ao model para realizar a atualização do usuário.
 
-Esta página deve estar acessível através do endpoint `/me/edit`, e o formulário deve ser enviado para o endpoint `POST /me`.
+Esta página deve estar acessível através do endpoint `/me/edit`, e ao editar com sucesso ser redirecionado para o endpoint `/`.
 
 Caso uma pessoa não logada tente acessar a página, ela deve ser redirecionada para o login. (O middleware `authMiddleware` já implementa essa funcionalidade, então não se esqueça de utilizá-lo aqui.)
 
