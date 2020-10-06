@@ -475,7 +475,9 @@ A validação dos campos deve ser realizada no backend.
 
 A página deve ser acessível através do endpoint `/recipes/:id/delete`, e só pode ser acessada pela pessoa que cadastrou a receita.
 
-Ao acessar a página, um formulário deve ser exibido, solicitando a senha da pessoa para confirmar a operação. Esse formulário deve ser enviado para o endpoint `POST /recipes/:id/delete`.
+Ao acessar a página, um formulário deve ser exibido, solicitando a senha da pessoa para confirmar a operação. 
+
+Caso a remoção aconteça com sucesso, a pessoa deve ser redirecionada para a página home /.
 
 A receita só deve ser excluída caso a senha esteja correta. Caso ela esteja incorreta, a pessoa deve ser redirecionada à página de exclusão da receita com a mensagem "Senha incorreta.".
 
