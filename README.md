@@ -52,25 +52,25 @@ A aplicação a ser construída trata-se de um cadastro de receitas, onde será 
 
 ## Desenvolvimento
 
-Você vai desenvolver todas as camadas da aplicação (Models, Views e Controllers) a partir do código deste repositório, que já possui a lógica necessária para realizar login e logout de usuários, bem como um middleware que você pode utilizar em todas as rotas que precisem de autenticação.
+Você vai desenvolver todas as camadas da aplicação (Models, Views e Controllers) a partir do código deste repositório, que já possui a lógica necessária para realizar login e logout de pessoas usuárias, bem como um middleware que você pode utilizar em todas as rotas que precisem de autenticação.
 
 Através dessa aplicação, será possível realizar as operações básicas que se pode fazer em um determinado banco de dados: Criação, Leitura, Atualização e Exclusão (ou `CRUD`, pros mais íntimos 😜).
 
 Para realizar qualquer tipo de alteração no banco de dados (como cadastro, edição ou exclusão de receitas) será necessário autenticar-se. Para visualizar receitas, a autenticação não é necessária.
 
-O código para cadastro de usuários deve ser criado por você utilizando os conhecimentos adquiridos nesse bloco.
+O código para cadastro de pessoas usuárias deve ser criado por você utilizando os conhecimentos adquiridos nesse bloco.
 
 ⚠️ **Dicas Importantes** ⚠️:
 - No código deste repositório, utilizamos o middleware `cookie-parser` para realizar a leitura do cookie contendo o token de autenticação. Ele é necessário para que o sistema de login / logout funcione. **Não o remova**!
 
-- Você não precisa alterar a lógica de gerenciamento de sessões (login / logout de usuários).
+- Você não precisa alterar a lógica de gerenciamento de sessões (login / logout de pessoas usuárias).
 
 - No `package.json`, você vai encontrar dois scripts que iniciam sua aplicação: `start` e `start:watch`. O primeiro, apenas inicia o servidor normalmente, enquanto o segundo inicia o servidor e o reinicia a cada alteração no código.
 
 - O arquivo `models/userModel.js` está criado, mas não contém código para conexão com o banco. As funções existentes nele servem para _guardar lugar_ para algumas das funções que você deve criar. O papel de cada uma dessas funções está descrito nos comentários acima delas.
 
 - O middleware `authMiddleware`, presente em `middlewares/auth.js` pode ser usado nas rotas que exigem autenticação.
-  - Quando você utiliza o `authMiddleware` em uma rota, ele cria a propriedade `req.user`, que contém as informações do usuário atual, conforme retornadas pelo `userModel`.
+  - Quando você utiliza o `authMiddleware` em uma rota, ele cria a propriedade `req.user`, que contém as informações da pessoa usuária atual, conforme retornadas pelo `userModel`.
   - O `authMiddleware` está disponível no `index.js` da aplicação através de `middlewares.auth`.
 
 - Você pode modificar o layout das views que já existem. No entando, deve garantir que a funcionalidade continua a mesma.
@@ -79,9 +79,9 @@ O código para cadastro de usuários deve ser criado por você utilizando os con
 
 - Quando o atributo `method` de um formulário é definido para `GET`, o navegador utiliza o atributo `name` de cada campo para montar a query string. Isso quer dizer que, se você quiser um atributo chamado `search` na query string, precisa de um input com `name="search"` no seu formulário.
 
-- Toda vez que uma view precisar saber se existe ou não um usuário logado, você pode, no controller, passar o conteúdo de `req.user` para essa view. Depois, na view, basta verificar se esse campo veio preenchido ou não, utilizando algo como `<% if (user) { %> \<\!-- Utiliza os dados do usuário --\> <% } %>`.
+- Toda vez que uma view precisar saber se existe ou não uma pessoa usuária logada, você pode, no controller, passar o conteúdo de `req.user` para essa view. Depois, na view, basta verificar se esse campo veio preenchido ou não, utilizando algo como `<% if (user) { %> \<\!-- Utiliza os dados da pessoa usuária --\> <% } %>`.
 
-- O middleware `authMiddleware` recebe um único parâmetro chamado `required`. Quando verdadeiro, esse parâmetro faz com que uma rota só possa ser acessada por pessoas logadas. Em alguns casos, uma página precisa ter acesso aos dados do usuário, caso essa pessoa esteja logada, mas deve continuar podendo ser acessada por pessoas que não estejam autenticadas. Para esse caso, passe `false` no parâmetro required para a função `authMiddleware`. Ex.: `middlewares.auth(false)`.
+- O middleware `authMiddleware` recebe um único parâmetro chamado `required`. Quando verdadeiro, esse parâmetro faz com que uma rota só possa ser acessada por pessoas logadas. Em alguns casos, uma página precisa ter acesso aos dados da pessoa usuária, caso essa pessoa esteja logada, mas deve continuar podendo ser acessada por pessoas que não estejam autenticadas. Para esse caso, passe `false` no parâmetro required para a função `authMiddleware`. Ex.: `middlewares.auth(false)`.
 
 - Utilize `includes` do EJS para renderizar a navbar das páginas
 
@@ -312,7 +312,7 @@ A página deve ser acessível através da rota principal (`/`).
 
 Para cada receita, deve ser mostrado apenas o nome da receita e o nome da pessoa que cadastrou aquela receita, bem como um link para ver seus detalhes.
 
-Um botão "Nova receita" deve ser exibido **apenas quando houver um usuário logado**.
+Um botão "Nova receita" deve ser exibido **apenas quando houver uma pessoa usuária logada**.
 
 ### Tela da home:
 
@@ -320,7 +320,7 @@ Um botão "Nova receita" deve ser exibido **apenas quando houver um usuário log
 
 - A página deverá ter o texto 'Receitas'.
 
-- O link 'Ver mais' deverá estar num elemento `<a>` com o texto `Ver mais`. Algo na linha de: `<a href="Link">Ver mais</a>`
+- O link 'Ver mais' deverá estar no elemento `<a>` com o texto `Ver mais`. Algo na linha de: `<a href="Link">Ver mais</a>`
 
 - O botão 'Nova Receita' deverá conter o `data-testid="nova-receita"`
 (Esse botão deverá ficar visível na tela apenas estando logado).
@@ -350,13 +350,13 @@ Um botão "Nova receita" deve ser exibido **apenas quando houver um usuário log
 
 #### Além disso, as seguintes verificações serão feitas:
 
-**[Verificar se estou na home e há os títulos 'Cookmaster' e 'Receitas' na tela]**
+- **[Verificar se estou na home e há os títulos 'Cookmaster' e 'Receitas' na tela]**
 
-**[Verificar se não existe o botão 'Nova Receita' quando se acessa a home sem estar logado]**
+- **[Verificar se não existe o botão 'Nova Receita' quando se acessa a home sem estar logado]**
 
-**[Verificar se existe o botão 'Nova Receita' quando estou logado e acessando a home]**
+- **[Verificar se existe o botão 'Nova Receita' quando estou logado e acessando a home]**
 
-**[Verificar se existe, na tela, uma receita previamente cadastrada com 'nome da receita', 'nome do usuário' e o link da receita em 'Ver mais']**
+- **[Verificar se existe, na tela, uma receita previamente cadastrada com 'nome da receita', 'nome do usuário' e o link da receita em 'Ver mais']**
 
 ### 2 - Crie uma página de cadastro de usuários.
 
@@ -420,7 +420,7 @@ Caso o ID da pessoa logada na aplicação seja o mesmo ID da pessoa que criou a 
 
 Esta página deve exibir o título, os ingredientes, e a forma de preparo da receita.
 
-> Dica: esse é um dos casos no qual você pode utilizar o `authMiddleware` passando `false` para o parâmetro `required`, e passar o conteúdo de `req.user` para a view, o que o permitirá determinar se existe um usuário logado e, portanto, se os botões devem ser exibidos.
+> Dica: esse é um dos casos no qual você pode utilizar o `authMiddleware` passando `false` para o parâmetro `required`, e passar o conteúdo de `req.user` para a view, o que o permitirá determinar se existe uma pessoa usuária logada e, portanto, se os botões devem ser exibidos.
 
 ### Tela sem estar logado:
 
@@ -436,19 +436,19 @@ Esta página deve exibir o título, os ingredientes, e a forma de preparo da rec
 
 #### As seguintes verificações serão feitas:
 
-**[Verificar se consigo acessar uma receita especifica]**
+- **[Verificar se consigo acessar uma receita especifica]**
 
-**[Verificar se consigo acessar uma receita especifica depois que faço login]**
+- **[Verificar se consigo acessar uma receita especifica depois que faço login]**
 
-**[Quando estou logado verfico se na página de uma receita específica existe os botões 'Editar Receita' e 'Excluir Receita']**
+- **[Quando estou logado verifico se na página de uma receita específica existe os botões 'Editar Receita' e 'Excluir Receita']**
 
-**[Verificar se na página da receita irá exibir o 'título da receita', os 'ingredientes', e a 'forma de preparo' da receita]**
+- **[Verificar se na página da receita irá exibir o 'título da receita', os 'ingredientes', e a 'forma de preparo' da receita]**
 
-**[Verificar se o botão 'Editar Receita' leva para página de edição de receita]**
+- **[Verificar se o botão 'Editar Receita' leva para página de edição de receita]**
 
-**[Verificar se o botão 'Excluir Receita' leva para página de exclusão de receita]**
+- **[Verificar se o botão 'Excluir Receita' leva para página de exclusão de receita]**
 
-**[Quando a pessoa está logada, verificar se na página de uma receita específica existem os botões 'Editar Receita' e 'Excluir Receita']**
+- **[Quando a pessoa está logada, verificar se na página de uma receita específica existem os botões 'Editar Receita' e 'Excluir Receita']**
 
 ### 4 - Cria uma página de buscar de receitas.
 
@@ -476,9 +476,9 @@ O botão 'Buscar Receitas' ficará sempre visível na tela home, estando a pesso
 
 **[Verificar se o botão 'Buscar Receitas' redireciona para a página das minhas receitas]**
 
-**[Validar se consigo fazer uma busca de receita]**
+- **[Validar se consigo fazer uma busca de receita]**
 
-**[Validar se não possível buscar uma receita que não existe]**
+- **[Validar se não possível buscar uma receita que não existe]**
 
 #### Funções administrativas
 
@@ -517,11 +517,11 @@ Na Tela inicial('/') acidione o botão 'Nova Receita' deverá conter a tag `data
 
 #### As seguintes verificações serão feitas:
 
-**[Verificar se o botão 'Nova Receita' direciona para página de cadastrar receitas]**
+- **[Verificar se o botão 'Nova Receita' direciona para página de cadastrar receitas]**
 
-**[Cadastrar uma receita]**
+- **[Cadastrar uma receita]**
 
-**[Remover um ingrediente da receita]**
+- **[Remover um ingrediente da receita]**
 
 ### 6 - Crie uma página de edição de receitas.
 
@@ -587,17 +587,17 @@ Caso a receita seja excluída com sucesso, a pessoa deve ser redirecionada à p�
 
 Ao inserir a senha errada deverá mostrar a mensagem 'Senha Incorreta.'
 
-**[Excluir receita com sucesso e verificar se foi houve redirecionamento à página de listagem de receitas]**
+- **[Excluir receita com sucesso e verificar se foi houve redirecionamento à página de listagem de receitas]**
 
 ### 8 - Crie uma página de "Minhas receitas"
 
 O link para acessar essa página só deve estar visível para pessoas logadas.
 
-A página deve estar acessível através do endpoint `/me/recipes`, e deve renderizar uma lista igual à que é exibida na página de listar receitas, populada com as receitas cadastradas pelo usuário logado.
+A página deve estar acessível através do endpoint `/me/recipes`, e deve renderizar uma lista igual à que é exibida na página de listar receitas, populada com as receitas cadastradas pela pessoa usuária logada.
 
 Caso uma pessoa que não está logada acesse essa página, ela deve ser redirecionada para a tela de login. (O middleware `authMiddleware` já implementa essa funcionalidade, então não se esqueça de utilizá-lo aqui.)
 
-> Lembrete: o ID do usuário logado está disponível em `req.user.id`.
+> Lembrete: o ID da pessoa usuária logada está disponível em `req.user.id`.
 
 Na Tela inicial('/'), acidione o botão 'Minhas Receitas', que deverá conter a tag `data-testid="minhas-receitas"` e, ao clicar-se nele, deverá redirecionar para a página de 'Minhas Receitas'. Ele só poderá ser visualizado caso se esteja logado.
 
@@ -607,11 +607,11 @@ Na Tela inicial('/'), acidione o botão 'Minhas Receitas', que deverá conter a 
 
 #### As seguintes verificações serão feitas:
 
-**[Validar se o botão 'Minhas Receitas' está redirecionando para página das minhas receitas]**
+- **[Validar se o botão 'Minhas Receitas' está redirecionando para página das minhas receitas]**
 
-**[Validar se a página 'Minhas Receitas' está listando as receitas da pessoa usuária]**
+- **[Validar se a página 'Minhas Receitas' está listando as receitas da pessoa usuária]**
 
-**[Validar se, quando o usuário não está logado, tentar acessar a url das minhas receitas leva a um redirecionamento para a tela de login]**
+- **[Validar se, quando o usuário não está logado, tentar acessar a url das minhas receitas leva a um redirecionamento para a tela de login]**
 
 ## Bônus
 
@@ -619,7 +619,7 @@ Na Tela inicial('/'), acidione o botão 'Minhas Receitas', que deverá conter a 
 
 O link para acessar essa página só deve estar visível para pessoas logadas.
 
-Cada pessoa só deve poder editar o próprio perfil. Para isso, o backend deve extrair o ID do usuário a ser atualizado da propriedade `req.user`, e não do corpo da request. Esse deve ser o ID enviado ao model para realizar a atualização do usuário.
+Cada pessoa só deve poder editar o próprio perfil. Para isso, o backend deve extrair o ID da pessoa usuária a ser atualizado da propriedade `req.user`, e não do corpo da request. Esse deve ser o ID enviado ao model para realizar a atualização da pessoa usuária.
 
 Esta página deve estar acessível através do endpoint `/me/edit`, e ao editar com sucesso ser redirecionado para o endpoint `/`.
 
@@ -647,15 +647,15 @@ Na Tela inicial('/'), acidione o botão 'Minha Conta', que deverá conter a tag 
 
 #### Além disso,as seguintes verificações serão feitas:
 
-**[Verificar se o botão 'Editar Usuário' redireciona para tela de editar usuário]**
+- **[Verificar se o botão 'Editar Usuário' redireciona para tela de editar usuário]**
 
-**[Validar que é possível se alterar o email]**
+- **[Validar que é possível se alterar o email]**
 
-**[Validar que é possível se alterar o nome]**
+- **[Validar que é possível se alterar o nome]**
 
-**[Validar que é possível se alterar o sobrenome]**
+- **[Validar que é possível se alterar o sobrenome]**
 
-**[Validar que é possível se alterar a senha]**
+- **[Validar que é possível se alterar a senha]**
 
 ---
 
