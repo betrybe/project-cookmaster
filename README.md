@@ -115,7 +115,7 @@ O código para cadastro de pessoas usuárias deve ser criado por você utilizand
 - `npm install`
 
 3. Crie uma branch a partir da branch `master`
-  
+
 - Verifique que você está na branch `master`
   - Exemplo: `git branch`
 - Se não estiver, mude para a branch `master`
@@ -125,7 +125,7 @@ O código para cadastro de pessoas usuárias deve ser criado por você utilizand
   - Exemplo: `git checkout -b joaozinho-cookmaster`
 
 4. Adicione as mudanças ao _stage_ do Git e faça um `commit`
-  
+
 - Verifique que as mudanças ainda não estão no _stage_
   - Exemplo: `git status` (deve aparecer listada a pasta _joaozinho_ em vermelho)
 - Adicione o novo arquivo ao _stage_ do Git
