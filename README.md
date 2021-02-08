@@ -186,12 +186,6 @@ Caso tenha alguma dúvida, [aqui tem um video explicativo](https://vimeo.com/362
 
 # Como desenvolver
 
----
-
-
-
-## Requisitos Obrigatórios:
-
 ### 💡Veja o exemplo a seguir de como o projeto pode se parecer depois de pronto. Lembre-se que você pode ~~e deve~~ ir além para deixar o projeto com a sua cara e impressionar à todos!
 
 Você pode acessar um protótipo da aplicação com todas as telas (tanto obrigatórias quanto bônus) [neste link](https://www.figma.com/file/CAEkOBX1n3mpVXr4kjgvY8/Project-Cookmaster?node-id=0%3A1).
@@ -289,6 +283,26 @@ Variáveis:
 * Listagem de receitas
 * Tela para visualizar uma receita específica
 * Página de cadastro de pessoas usuárias
+
+---
+
+## Linter
+
+Usaremos o [ESLint](https://eslint.org/) para fazer a análise estática do seu código.
+
+Este projeto já vem com as dependências relacionadas ao _linter_ configuradas no arquivos `package.json`.
+
+Para poder rodar os `ESLint` em um projeto basta executar o comando `npm install` dentro do projeto e depois `npm run lint`. Se a análise do `ESLint` encontrar problemas no seu código, tais problemas serão mostrados no seu terminal. Se não houver problema no seu código, nada será impresso no seu terminal.
+
+⚠ PULL REQUESTS COM ISSUES DE LINTER NÃO SERÃO AVALIADAS. ATENTE-SE PARA RESOLVÊ-LAS ANTES DE FINALIZAR O DESENVOLVIMENTO! ⚠
+
+Você pode também instalar o plugin do `ESLint` no `VSCode`, bastar ir em extensions e baixar o [plugin `ESLint`](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
+
+---
+
+# Requisitos do projeto
+
+## Lista de requisitos
 
 ### 1 - Crie uma tela de listagem de receitas.
 
@@ -645,9 +659,11 @@ Na Tela inicial('/'), acidione o botão 'Minha Conta', que deverá conter a tag 
 
 ---
 
-## Revisando um pull request
+# Revisando um pull request
 
 Use o conteúdo sobre [Code Review](https://course.betrybe.com/real-life-engineer/code-review/) para te ajudar a revisar os _Pull Requests_.
+
+---
 
 # Avisos finais
 
